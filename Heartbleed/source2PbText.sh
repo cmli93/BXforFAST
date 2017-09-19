@@ -1,15 +1,17 @@
-srcml src.c -o src.xml
-javac ProcessXML.java
-#我是注释行
-java ProcessXML
-./ComXMLBiYacc get srcProcessed.xml srcAST
-if [ ! -d "/srcPb.txt" ]; then
-  sudo mkdir /srcPb.txt
+#!/bin/bash
+fast src.c src.xml
+if [ ! -f ProcessXML.class ]; then
+	javac ProcessXML.java
 fi
+if [ ! -f srcProcessed.xml ]; then
+	java ProcessXML src.xml srcProcessed.xml
+fi
+./ComXMLBiYacc get srcProcessed.xml srcAST
 echo "" > srcPb.txt
 ./ComPBBiYacc put srcPb.txt srcAST
-javac ProcessProto.java
-#我是注释行
-java ProcessProto
-cat srcPbProcessed.txt | protoc --encode=fast.Data fast.proto>src.pb
-cat src.pb | protoc --decode=fast.Data fast.proto>srcPbProcessed.txt
+if [ ! -f ProcessProto.class ]; then
+	javac ProcessProto.java
+fi
+java ProcessProto srcPb.txt srcPbProcessed.txt
+fast -e srcPbProcessed.txt src.pb
+fast -d src.pb > srcPbProcessed.txt 

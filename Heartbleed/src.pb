@@ -1,5 +1,5 @@
 
-çÔ2/* ssl/d1_both.c */2É/* $
+ôˆ2/* ssl/d1_both.c */2É/* $
 $ * DTLS implementation written by Nagendra Modadugu$
 $ * (nagendra@cs.stanford.edu) for the OpenSSL project 2005.  $
 $ */2∂±/* ====================================================================$
@@ -449,26 +449,32 @@ pitem_free2i(2j226item:):;:}:}2Ú2!926unsigned26char
 6memset2{i(2j226ccs_hdr:,2j2200x00J:,2Cj2<28®sizeof2+i(2$j2struct26ccs_header_st:):):;2`2Y2$626ccs_hdr2	4-&gt;26type24=24*24(26data24++24):;:}2Ò	2926int26dtls1_shutdown2+e(2$f22926SSL25*26s:)2û	<{222926int26ret:;2(œ#2óifndef26OPENSSL_NO_SCTP2œûif2‘;(2Ã2Z26BIO_dgram_is_sctp2?i(28j212-26SSL_get_wbio2i(2j2	26s:):)24
 &amp;&amp;24!24(2"626s2	4-&gt;26shutdown2	4&amp;26SSL_SENT_SHUTDOWN24):)2ÓC2È<{22{26ret24=2d26BIO_dgram_sctp_wait_for_dry2?i(28j212-26SSL_get_wbio2i(2j2	26s:):):;2aûif2*;(2#26ret24&lt;2	00J:)2,C2(<2$«return224-2	01J:;2˝ûif2(;(2!26ret24==2	00J:)2∆C2¡<2º2∑2Ø26BIO_ctrl2úi(28j212-26SSL_get_wbio2i(2j2	26s:):,20j2)2%6!BIO_CTRL_DGRAM_SCTP_SAVE_SHUTDOWN:,2j22	01J:,2j226NULL:):;:}2À#2
 óendif2I2E26ret24=2.26ssl3_shutdown2i(2j2	26s:):;2(œ#2óifndef26OPENSSL_NO_SCTP2º2∑2Ø26BIO_ctrl2úi(28j212-26SSL_get_wbio2i(2j2	26s:):,20j2)2%6!BIO_CTRL_DGRAM_SCTP_SAVE_SHUTDOWN:,2j22	00J:,2j226NULL:):;2À#2
-óendif2«return226ret:;:}2.œ#2óifndef26OPENSSL_NO_HEARTBEATS2∂2926int26dtls1_process_heartbeat2+e(2$f22926SSL25*26s:)2⁄<{2¯2¢2!926unsigned26char25*26p2q=2j2	4&amp;2[626s2	4-&gt;26s32	4-&gt;26rrec24.26data2>[22	00J:]:,25*2H2995This is just a placeholder. Please ignore this child.26pl:;222.2926unsigned2	6short2
+óendif2«return226ret:;:}2.œ#2óifndef26OPENSSL_NO_HEARTBEATS2¬%2926int26dtls1_process_heartbeat2+e(2$f22926SSL25*26s:)2Ê$<{2¯2¢2!926unsigned26char25*26p2q=2j2	4&amp;2[626s2	4-&gt;26s32	4-&gt;26rrec24.26data2>[22	00J:]:,25*2H2995This is just a placeholder. Please ignore this child.26pl:;222.2926unsigned2	6short2
 6hbtype:;212-2926unsigned26int26payload:;2H2D2926unsigned26int26padding2=22
-016J:;2/* Use minimum padding */2,(/* Read type and payload length first */222.2
-6hbtype24=24*26p24++:;2G2C2<26n2s2/i(2j2	26p:,2j226payload:):;2226pl24=26p:;2¸ûif24;(2-2&626s2	4-&gt;26msg_callback:)2ºC2∑<2≤2≠2•2&626s2	4-&gt;26msg_callback2¯i(2j22	00J:,2,j2%2!626s2	4-&gt;26version:,2 j226TLS1_RT_HEARTBEAT:,2qj2j2	4&amp;2[626s2	4-&gt;26s32	4-&gt;26rrec24.26data2>[22	00J:]:,2Oj2H2D626s2	4-&gt;26s32	4-&gt;26rrec24.2
-6length:,2j2	26s:,25j2.2*626s2	4-&gt;26msg_callback_arg:):;2öûif25;(2.2
-6hbtype24==26TLS1_HB_REQUEST:)2ÉC2˛<{2â242!926unsigned26char25*2
-6buffer:,25*2H2995This is just a placeholder. Please ignore this child.26bp:;222926int26r:;2æπ/* Allocate memory for the response, size is 1 byte$
+016J:;2/* Use minimum padding */22226242426242*2&2"262i2
+j2262
+j226222624262¸ûif24;(2-2&626s2	4-&gt;26msg_callback:)2ºC2∑<2≤2≠2•2&626s2	4-&gt;26msg_callback2¯i(2j22	00J:,2,j2%2!626s2	4-&gt;26version:,2 j226TLS1_RT_HEARTBEAT:,2qj2j2	4&amp;2[626s2	4-&gt;26s32	4-&gt;26rrec24.26data2>[22	00J:]:,2Oj2H2D626s2	4-&gt;26s32	4-&gt;26rrec24.2
+6length:,2j2	26s:,25j2.2*626s2	4-&gt;26msg_callback_arg:):;2,(/* Read type and payload length first */2æûif2ç;(2Ö2	01J24+2	02J24+2
+016J24&gt;2D626s2	4-&gt;26s32	4-&gt;26rrec24.2
+6length:)2%C2!<2«return22	00J:;2/* silently discard */222.2
+6hbtype24=24*26p24++:;2G2C2<26n2s2/i(2j2	26p:,2j226payload:):;2“ûif2°;(2ô2	01J24+2	02J24+26payload24+2
+016J24&gt;2D626s2	4-&gt;26s32	4-&gt;26rrec24.2
+6length:)2%C2!<2«return22	00J:;2.*/* silently discard per RFC 6520 sec. 4 */2226pl24=26p:;2‰ûif25;(2.2
+6hbtype24==26TLS1_HB_REQUEST:)2ÕC2»<{2â242!926unsigned26char25*2
+6buffer:,25*2H2995This is just a placeholder. Please ignore this child.26bp:;2æ2π2926unsigned26int26write_length2Ñ=2}2	01J2/* heartbeat type */24+2	02J2/* heartbeat length */24+26payload24+26padding:;222926int26r:;2vûif2F;(2?26write_length24&gt;26SSL3_RT_MAX_PLAIN_LENGTH:)2%C2!<2«return22	00J:;2æπ/* Allocate memory for the response, size is 1 byte$
 $                 * message type, plus 2 bytes payload length, plus$
 $                 * payload, plus padding$
-$                 */2å2á2
-6buffer24=2m26OPENSSL_malloc2Ui(2Nj2G2	01J24+2	02J24+26payload24+26padding:):;2$2 26bp24=2
+$                 */2F2B262426262.i2*j2&20J2420J242624262X2T2
+6buffer24=2:26OPENSSL_malloc2"i(2j226write_length:):;2$2 26bp24=2
 6buffer:;262/* Enter response type, length and copy payload */2=2924*26bp24++24=26TLS1_HB_RESPONSE:;2H2D2=26s2n20i(2j226payload:,2j2
 26bp:):;2^2Z2S2
 6memcpy2Ci(2j2
 26bp:,2j2
 26pl:,2j226payload:):;2&2"26bp24+=26payload:;2/* Random padding */2V2R2K26RAND_pseudo_bytes20i(2j2
-26bp:,2j226padding:):;2≈2¿26r24=2™26dtls1_write_bytes2éi(2j2	26s:,2 j226TLS1_RT_HEARTBEAT:,2j22
-6buffer:,2<j252	03J24+26payload24+26padding:):;2∫ûif2a;(2Z26r2	4&gt;=2	00J24
-&amp;&amp;2&626s2	4-&gt;26msg_callback:)2ÕC2»<2√2æ2∂2&626s2	4-&gt;26msg_callback2âi(2j22	01J:,2,j2%2!626s2	4-&gt;26version:,2 j226TLS1_RT_HEARTBEAT:,2j22
-6buffer:,2<j252	03J24+26payload24+26padding:,2j2	26s:,25j2.2*626s2	4-&gt;26msg_callback_arg:):;2=292226OPENSSL_free2i(2j22
+26bp:,2j226padding:):;2ƒ2ø26r24=2©26dtls1_write_bytes2çi(2j2	26s:,2 j226TLS1_RT_HEARTBEAT:,2j22
+6buffer:,2j220J242624262j226write_length:):;2πûif2a;(2Z26r2	4&gt;=2	00J24
+&amp;&amp;2&626s2	4-&gt;26msg_callback:)2ÃC2«<2¬2Ω2µ2&626s2	4-&gt;26msg_callback2ài(2j22	01J:,2,j2%2!626s2	4-&gt;26version:,2 j226TLS1_RT_HEARTBEAT:,2j22
+6buffer:,2j220J242624262j226write_length:,2j2	26s:,25j2.2*626s2	4-&gt;26msg_callback_arg:):;2=292226OPENSSL_free2i(2j22
 6buffer:):;2Wûif2(;(2!26r24&lt;2	00J:)2!C2<2«return226r:;:}2”Eelse2»ûif26;(2/2
 6hbtype24==26TLS1_HB_RESPONSE:)2ÜC2Å<{2-2)2926unsigned26int26seq:;2™•/* We only send sequence numbers (2 bytes unsigned int),$
 $                 * and 16 random bytes, so we just try to read the$

@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 
 public class ReverseProcessProto {
     public static void main(String[] args) {
-        File file = new File("/Users/lichunmiao/Desktop/ICSE18Paper/Heartbleed/modifiedPbProcessed.txt");
+        File file = new File(args[0]);
         
         String inputString = "";
         
@@ -154,7 +154,7 @@ public class ReverseProcessProto {
      
         //下面将outputString写入新的xml文件中
 
-        File file2 = new File("/Users/lichunmiao/Desktop/ICSE18Paper/Heartbleed/modifiedPb.txt");
+        File file2 = new File(args[1]);
         
         try {  
             FileWriter fileWriter = new FileWriter(file2);  
