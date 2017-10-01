@@ -38,7 +38,7 @@
  *    \"This product includes software developed by the OpenSSL Project
  *    for use in the OpenSSL Toolkit (http://www.openssl.org/)\"
  *
- * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'\' AND ANY
+ * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
  * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
  * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
@@ -96,7 +96,7 @@
  *    the apps directory (application code) you must include an acknowledgement:
  *    \"This product includes software written by Tim Hudson (tjh@cryptsoft.com)\"
  * 
- * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'\' AND
+ * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
  * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
@@ -1485,11 +1485,11 @@
                 <comment type="block">"/* Random padding */"</comment>
                 <expr_stmt><expr><call><name>"RAND_pseudo_bytes"</name><argument_list>"("<argument><expr><name>"bp"</name></expr></argument>"," <argument><expr><name>"padding"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
-                <expr_stmt><expr><name>"r"</name> <operator>"="</operator> <call><name>"dtls1_write_bytes"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>"," <argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>"," <argument><expr><name>"buffer"</name></expr></argument>"," <argument><expr><literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument>""<argument><expr><name>"write_length"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                <expr_stmt><expr><name>""</name><operator>""</operator><call><name>""</name><argument_list>""<argument><expr><name>""</name></expr></argument>""<argument><expr><name>""</name></expr></argument>""<argument><expr><name>""</name></expr></argument>""<argument><expr><literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument>""</argument_list></call></expr>""</expr_stmt><expr_stmt><expr><name>"r"</name> <operator>"="</operator> <call><name>"dtls1_write_bytes"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>"," <argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>"," <argument><expr><name>"buffer"</name></expr></argument>"," <argument><expr><name>"write_length"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
                 <if>"if" <condition>"("<expr><name>"r"</name> <operator>"&gt;="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name></expr>")"</condition><then>
                         <block type="pseudo"><expr_stmt><expr><call><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name><argument_list>"("<argument><expr><literal type="number">"1"</literal></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"version"</name></name></expr></argument>"," <argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>","
-                                <argument><expr><name>"buffer"</name></expr></argument>"," <argument><expr><literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument>""<argument><expr><name>"write_length"</name></expr></argument>","
+                                <argument><expr><name>""</name></expr></argument>""<argument><expr><literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument>""<argument><expr><name>"buffer"</name></expr></argument>"," <argument><expr><name>"write_length"</name></expr></argument>","
                                 <argument><expr><name>"s"</name></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback_arg"</name></name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt></block></then></if>
 
                 <expr_stmt><expr><call><name>"OPENSSL_free"</name><argument_list>"("<argument><expr><name>"buffer"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>

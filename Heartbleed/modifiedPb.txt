@@ -46,7 +46,7 @@
  *    \"This product includes software developed by the OpenSSL Project
  *    for use in the OpenSSL Toolkit (http://www.openssl.org/)\"
  *
- * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'\' AND ANY
+ * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
  * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
  * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
@@ -107,7 +107,7 @@
  *    the apps directory (application code) you must include an acknowledgement:
  *    \"This product includes software written by Tim Hudson (tjh@cryptsoft.com)\"
  * 
- * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'\' AND
+ * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
  * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
@@ -33259,6 +33259,95 @@
                 kind:  expr
                 child {
                   kind:  name
+                  text: ""
+                }
+                child {
+                  kind:  operator
+                  text: ""
+                }
+                child {
+                  kind:  call
+                  child {
+                    kind:  name
+                    text: ""
+                  }
+                  child {
+                    kind:  argument_list
+                    text: ""
+                    child {
+                      kind:  argument
+                      child {
+                        kind:  expr
+                        child {
+                          kind:  name
+                          text: ""
+                        }
+                      }
+                      } text: ""
+                    
+                    child {
+                      kind:  argument
+                      child {
+                        kind:  expr
+                        child {
+                          kind:  name
+                          text: ""
+                        }
+                      }
+                      } text: ""
+                    
+                    child {
+                      kind:  argument
+                      child {
+                        kind:  expr
+                        child {
+                          kind:  name
+                          text: ""
+                        }
+                      }
+                      } text: ""
+                    
+                    child {
+                      kind:  argument
+                      child {
+                        kind:  expr
+                        child {
+                          kind:  literal
+                          text: ""
+                          literal {
+                            type: "number"
+                          }
+                        }
+                        child {
+                          kind:  operator
+                          text: ""
+                        }
+                        child {
+                          kind:  name
+                          text: ""
+                        }
+                        child {
+                          kind:  operator
+                          text: ""
+                        }
+                        child {
+                          kind:  name
+                          text: ""
+                        }
+                      }
+                      } text: ""
+                    
+                  }
+                }
+                } text: ""
+              
+            }
+            child {
+              kind:  expr_stmt
+              child {
+                kind:  expr
+                child {
+                  kind:  name
                   text: "r"
                 }
                 child {
@@ -33306,36 +33395,6 @@
                         }
                       }
                       } text: ","
-                    
-                    child {
-                      kind:  argument
-                      child {
-                        kind:  expr
-                        child {
-                          kind:  literal
-                          text: ""
-                          literal {
-                            type: "number"
-                          }
-                        }
-                        child {
-                          kind:  operator
-                          text: ""
-                        }
-                        child {
-                          kind:  name
-                          text: ""
-                        }
-                        child {
-                          kind:  operator
-                          text: ""
-                        }
-                        child {
-                          kind:  name
-                          text: ""
-                        }
-                      }
-                      } text: ""
                     
                     child {
                       kind:  argument
@@ -33479,10 +33538,10 @@
                               kind:  expr
                               child {
                                 kind:  name
-                                text: "buffer"
+                                text: ""
                               }
                             }
-                            } text: ","
+                            } text: ""
                           
                           child {
                             kind:  argument
@@ -33513,6 +33572,17 @@
                               }
                             }
                             } text: ""
+                          
+                          child {
+                            kind:  argument
+                            child {
+                              kind:  expr
+                              child {
+                                kind:  name
+                                text: "buffer"
+                              }
+                            }
+                            } text: ","
                           
                           child {
                             kind:  argument

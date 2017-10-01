@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
 public class ProcessProto {
 
     public static void main(String[] args) {
-        File file = new File("/Users/lichunmiao/Desktop/ICSE18Paper/Heartbleed/srcPb.txt");
+        File file = new File("/Users/lichunmiao/Desktop/ICSE18Paper/PatchingExample/Heartbleed/srcPb.txt");
         
         String inputString = "";
         InputStreamReader reader = null;
@@ -160,7 +160,7 @@ public class ProcessProto {
        
         //下面将outputString写入新的文件中
 
-        File file2 = new File("/Users/lichunmiao/Desktop/ICSE18Paper/Heartbleed/srcPbProcessed.txt");
+        File file2 = new File("/Users/lichunmiao/Desktop/ICSE18Paper/PatchingExample/Heartbleed/srcPbProcessed.txt");
         
         try {  
             FileWriter fileWriter = new FileWriter(file2);  
