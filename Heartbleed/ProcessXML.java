@@ -123,7 +123,7 @@ public class ProcessXML {
        
         //下面将outputString写入新的xml文件中
 
-        File file2 = new File("args[1]");
+        File file2 = new File(args[1]);
         
         if(!file2.exists())      
         {      

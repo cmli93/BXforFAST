@@ -31889,7 +31889,6 @@ element {
       }
       child {
         kind: COMMENT
-        text: "/* Read type and payload length first */"
       }
       child {
         kind: EXPR_STMT
@@ -31897,25 +31896,19 @@ element {
           kind: EXPR
           child {
             kind: NAME
-            text: "hbtype"
           }
           child {
             kind: OPERATOR
-            text: "="
           }
           child {
             kind: OPERATOR
-            text: "*"
           }
           child {
             kind: NAME
-            text: "p"
           }
           child {
             kind: OPERATOR
-            text: "++"
           }
-          tail: ";"
         }
       }
       child {
@@ -31926,21 +31919,17 @@ element {
             kind: CALL
             child {
               kind: NAME
-              text: "n2s"
             }
             child {
               kind: ARGUMENT_LIST
-              text: "("
               child {
                 kind: ARGUMENT
                 child {
                   kind: EXPR
                   child {
                     kind: NAME
-                    text: "p"
                   }
                 }
-                tail: ","
               }
               child {
                 kind: ARGUMENT
@@ -31948,14 +31937,11 @@ element {
                   kind: EXPR
                   child {
                     kind: NAME
-                    text: "payload"
                   }
                 }
-                tail: ")"
               }
             }
           }
-          tail: ";"
         }
       }
       child {
@@ -31964,17 +31950,13 @@ element {
           kind: EXPR
           child {
             kind: NAME
-            text: "pl"
           }
           child {
             kind: OPERATOR
-            text: "="
           }
           child {
             kind: NAME
-            text: "p"
           }
-          tail: ";"
         }
       }
       child {
@@ -32215,6 +32197,306 @@ element {
         }
       }
       child {
+        kind: COMMENT
+        text: "/* Read type and payload length first */"
+      }
+      child {
+        kind: IF
+        text: "if"
+        child {
+          kind: CONDITION
+          text: "("
+          child {
+            kind: EXPR
+            child {
+              kind: LITERAL
+              text: "1"
+              literal {
+                type: number_type
+              }
+            }
+            child {
+              kind: OPERATOR
+              text: "+"
+            }
+            child {
+              kind: LITERAL
+              text: "2"
+              literal {
+                type: number_type
+              }
+            }
+            child {
+              kind: OPERATOR
+              text: "+"
+            }
+            child {
+              kind: LITERAL
+              text: "16"
+              literal {
+                type: number_type
+              }
+            }
+            child {
+              kind: OPERATOR
+              text: "&gt;"
+            }
+            child {
+              kind: NAME
+              child {
+                kind: NAME
+                text: "s"
+              }
+              child {
+                kind: OPERATOR
+                text: "-&gt;"
+              }
+              child {
+                kind: NAME
+                text: "s3"
+              }
+              child {
+                kind: OPERATOR
+                text: "-&gt;"
+              }
+              child {
+                kind: NAME
+                text: "rrec"
+              }
+              child {
+                kind: OPERATOR
+                text: "."
+              }
+              child {
+                kind: NAME
+                text: "length"
+              }
+            }
+            tail: ")"
+          }
+        }
+        child {
+          kind: THEN
+          child {
+            kind: BLOCK
+            child {
+              kind: RETURN
+              text: "return"
+              child {
+                kind: EXPR
+                child {
+                  kind: LITERAL
+                  text: "0"
+                  literal {
+                    type: number_type
+                  }
+                }
+                tail: ";"
+              }
+            }
+          }
+        }
+      }
+      child {
+        kind: COMMENT
+        text: "/* silently discard */"
+      }
+      child {
+        kind: EXPR_STMT
+        child {
+          kind: EXPR
+          child {
+            kind: NAME
+            text: "hbtype"
+          }
+          child {
+            kind: OPERATOR
+            text: "="
+          }
+          child {
+            kind: OPERATOR
+            text: "*"
+          }
+          child {
+            kind: NAME
+            text: "p"
+          }
+          child {
+            kind: OPERATOR
+            text: "++"
+          }
+          tail: ";"
+        }
+      }
+      child {
+        kind: EXPR_STMT
+        child {
+          kind: EXPR
+          child {
+            kind: CALL
+            child {
+              kind: NAME
+              text: "n2s"
+            }
+            child {
+              kind: ARGUMENT_LIST
+              text: "("
+              child {
+                kind: ARGUMENT
+                child {
+                  kind: EXPR
+                  child {
+                    kind: NAME
+                    text: "p"
+                  }
+                }
+                tail: ","
+              }
+              child {
+                kind: ARGUMENT
+                child {
+                  kind: EXPR
+                  child {
+                    kind: NAME
+                    text: "payload"
+                  }
+                }
+                tail: ")"
+              }
+            }
+          }
+          tail: ";"
+        }
+      }
+      child {
+        kind: IF
+        text: "if"
+        child {
+          kind: CONDITION
+          text: "("
+          child {
+            kind: EXPR
+            child {
+              kind: LITERAL
+              text: "1"
+              literal {
+                type: number_type
+              }
+            }
+            child {
+              kind: OPERATOR
+              text: "+"
+            }
+            child {
+              kind: LITERAL
+              text: "2"
+              literal {
+                type: number_type
+              }
+            }
+            child {
+              kind: OPERATOR
+              text: "+"
+            }
+            child {
+              kind: NAME
+              text: "payload"
+            }
+            child {
+              kind: OPERATOR
+              text: "+"
+            }
+            child {
+              kind: LITERAL
+              text: "16"
+              literal {
+                type: number_type
+              }
+            }
+            child {
+              kind: OPERATOR
+              text: "&gt;"
+            }
+            child {
+              kind: NAME
+              child {
+                kind: NAME
+                text: "s"
+              }
+              child {
+                kind: OPERATOR
+                text: "-&gt;"
+              }
+              child {
+                kind: NAME
+                text: "s3"
+              }
+              child {
+                kind: OPERATOR
+                text: "-&gt;"
+              }
+              child {
+                kind: NAME
+                text: "rrec"
+              }
+              child {
+                kind: OPERATOR
+                text: "."
+              }
+              child {
+                kind: NAME
+                text: "length"
+              }
+            }
+            tail: ")"
+          }
+        }
+        child {
+          kind: THEN
+          child {
+            kind: BLOCK
+            child {
+              kind: RETURN
+              text: "return"
+              child {
+                kind: EXPR
+                child {
+                  kind: LITERAL
+                  text: "0"
+                  literal {
+                    type: number_type
+                  }
+                }
+                tail: ";"
+              }
+            }
+          }
+        }
+      }
+      child {
+        kind: COMMENT
+        text: "/* silently discard per RFC 6520 sec. 4 */"
+      }
+      child {
+        kind: EXPR_STMT
+        child {
+          kind: EXPR
+          child {
+            kind: NAME
+            text: "pl"
+          }
+          child {
+            kind: OPERATOR
+            text: "="
+          }
+          child {
+            kind: NAME
+            text: "p"
+          }
+          tail: ";"
+        }
+      }
+      child {
         kind: IF
         text: "if"
         child {
@@ -32292,6 +32574,77 @@ element {
                   kind: TYPE
                   child {
                     kind: NAME
+                    text: "unsigned"
+                  }
+                  child {
+                    kind: NAME
+                    text: "int"
+                  }
+                }
+                child {
+                  kind: NAME
+                  text: "write_length"
+                }
+                child {
+                  kind: INIT
+                  text: "="
+                  child {
+                    kind: EXPR
+                    child {
+                      kind: LITERAL
+                      text: "1"
+                      literal {
+                        type: number_type
+                      }
+                    }
+                    child {
+                      kind: COMMENT
+                      text: "/* heartbeat type */"
+                    }
+                    child {
+                      kind: OPERATOR
+                      text: "+"
+                    }
+                    child {
+                      kind: LITERAL
+                      text: "2"
+                      literal {
+                        type: number_type
+                      }
+                    }
+                    child {
+                      kind: COMMENT
+                      text: "/* heartbeat length */"
+                    }
+                    child {
+                      kind: OPERATOR
+                      text: "+"
+                    }
+                    child {
+                      kind: NAME
+                      text: "payload"
+                    }
+                    child {
+                      kind: OPERATOR
+                      text: "+"
+                    }
+                    child {
+                      kind: NAME
+                      text: "padding"
+                    }
+                  }
+                }
+                tail: ";"
+              }
+            }
+            child {
+              kind: DECL_STMT
+              child {
+                kind: DECL
+                child {
+                  kind: TYPE
+                  child {
+                    kind: NAME
                     text: "int"
                   }
                 }
@@ -32303,8 +32656,107 @@ element {
               }
             }
             child {
+              kind: IF
+              text: "if"
+              child {
+                kind: CONDITION
+                text: "("
+                child {
+                  kind: EXPR
+                  child {
+                    kind: NAME
+                    text: "write_length"
+                  }
+                  child {
+                    kind: OPERATOR
+                    text: "&gt;"
+                  }
+                  child {
+                    kind: NAME
+                    text: "SSL3_RT_MAX_PLAIN_LENGTH"
+                  }
+                  tail: ")"
+                }
+              }
+              child {
+                kind: THEN
+                child {
+                  kind: BLOCK
+                  child {
+                    kind: RETURN
+                    text: "return"
+                    child {
+                      kind: EXPR
+                      child {
+                        kind: LITERAL
+                        text: "0"
+                        literal {
+                          type: number_type
+                        }
+                      }
+                      tail: ";"
+                    }
+                  }
+                }
+              }
+            }
+            child {
               kind: COMMENT
               text: "/* Allocate memory for the response, size is 1 byte$\n$                 * message type, plus 2 bytes payload length, plus$\n$                 * payload, plus padding$\n$                 */"
+            }
+            child {
+              kind: EXPR_STMT
+              child {
+                kind: EXPR
+                child {
+                  kind: NAME
+                }
+                child {
+                  kind: OPERATOR
+                }
+                child {
+                  kind: CALL
+                  child {
+                    kind: NAME
+                  }
+                  child {
+                    kind: ARGUMENT_LIST
+                    child {
+                      kind: ARGUMENT
+                      child {
+                        kind: EXPR
+                        child {
+                          kind: LITERAL
+                          literal {
+                            type: number_type
+                          }
+                        }
+                        child {
+                          kind: OPERATOR
+                        }
+                        child {
+                          kind: LITERAL
+                          literal {
+                            type: number_type
+                          }
+                        }
+                        child {
+                          kind: OPERATOR
+                        }
+                        child {
+                          kind: NAME
+                        }
+                        child {
+                          kind: OPERATOR
+                        }
+                        child {
+                          kind: NAME
+                        }
+                      }
+                    }
+                  }
+                }
+              }
             }
             child {
               kind: EXPR_STMT
@@ -32332,38 +32784,8 @@ element {
                       child {
                         kind: EXPR
                         child {
-                          kind: LITERAL
-                          text: "1"
-                          literal {
-                            type: number_type
-                          }
-                        }
-                        child {
-                          kind: OPERATOR
-                          text: "+"
-                        }
-                        child {
-                          kind: LITERAL
-                          text: "2"
-                          literal {
-                            type: number_type
-                          }
-                        }
-                        child {
-                          kind: OPERATOR
-                          text: "+"
-                        }
-                        child {
                           kind: NAME
-                          text: "payload"
-                        }
-                        child {
-                          kind: OPERATOR
-                          text: "+"
-                        }
-                        child {
-                          kind: NAME
-                          text: "padding"
+                          text: "write_length"
                         }
                       }
                       tail: ")"
@@ -32637,26 +33059,31 @@ element {
                         kind: EXPR
                         child {
                           kind: LITERAL
-                          text: "3"
                           literal {
                             type: number_type
                           }
                         }
                         child {
                           kind: OPERATOR
-                          text: "+"
                         }
                         child {
                           kind: NAME
-                          text: "payload"
                         }
                         child {
                           kind: OPERATOR
-                          text: "+"
                         }
                         child {
                           kind: NAME
-                          text: "padding"
+                        }
+                      }
+                    }
+                    child {
+                      kind: ARGUMENT
+                      child {
+                        kind: EXPR
+                        child {
+                          kind: NAME
+                          text: "write_length"
                         }
                       }
                       tail: ")"
@@ -32803,26 +33230,31 @@ element {
                               kind: EXPR
                               child {
                                 kind: LITERAL
-                                text: "3"
                                 literal {
                                   type: number_type
                                 }
                               }
                               child {
                                 kind: OPERATOR
-                                text: "+"
                               }
                               child {
                                 kind: NAME
-                                text: "payload"
                               }
                               child {
                                 kind: OPERATOR
-                                text: "+"
                               }
                               child {
                                 kind: NAME
-                                text: "padding"
+                              }
+                            }
+                          }
+                          child {
+                            kind: ARGUMENT
+                            child {
+                              kind: EXPR
+                              child {
+                                kind: NAME
+                                text: "write_length"
                               }
                             }
                             tail: ","
