@@ -14,11 +14,11 @@ The file name don't need to be modified. For example, if the path is XX/XX/src.x
 
 1. Run source2PbText.sh. This step is to parse the source code to a pb file.
 
-2. Suppose there is a tool which can patch pb file directly. After it patched, use protocol buffer built-in operation to decode it and make a new modifiedPb.txt. (Note this is not the modifiedPbPreocessed.txt.)
+2. Suppose there is a tool which can patch pb file directly. After it patched, use protocol buffer built-in operation to decode it and make a new modifiedPbProcessed.txt.
 
 3. Run patchedPbText2Source.sh. This step is to reflect the change on the pb file to the source code. After executing this, the content in the file named as src.c has been changed to a patched one.
 
-4. Compare current src.c(i.e. the patched source code using BX) with patched.c(i.e. patched source code by programmers), except the layout for new inserted codes, all informations are kept. We think that the tool which can insert on the pb file don't take any responsibility to control the layout on the source after it is reflected to the source.
+4. Compare current src.c(i.e. the patched source code using BX) with patched.c(i.e. patched source code by programmers), except the layout for new inserted codes, all informations are kept. We think that the tool which can insert on the pb file don't take any responsibility to control the layout on the source after it is reflected to the source. However, the tool should add some space appropriately to divide different elements when inserting new information.
 
 Also, maybe you think that it is very slow to execute all steps above. However, it is caused by the preprocessing operations. You can just test the BX operations to confirm our alleged fast speed using these steps as below:
   ./ComXMLBiYacc get srcProcessed.xml srcAST
