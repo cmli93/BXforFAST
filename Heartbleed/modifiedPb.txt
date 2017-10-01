@@ -32440,7 +32440,7 @@
       }
       child {
         kind:  if
-        text: "if"
+        text: "if "
         child {
           kind:  condition
           text: "("
@@ -32448,7 +32448,7 @@
             kind:  expr
             child {
               kind:  literal
-              text: "1"
+              text: "1 "
               literal {
                 type: "number"
               }
