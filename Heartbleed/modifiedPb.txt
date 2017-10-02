@@ -16,13 +16,37 @@
       
       child {
         kind:  name
-        text: "c"
-        change: CHANGED_FROM
+        text: "b"
       }
       } text: ";"
     
     } text: "\n"
   
+  child {
+    kind:  expr_stmt
+    text: "DELETED"
+    child {
+      kind:  expr
+      text: "DELETED"
+      child {
+        kind:  name
+        text: "DELETED"
+        change: DELETED
+      }
+      child {
+        kind:  operator
+        text: "DELETED"
+        change: DELETED
+      }
+      child {
+        kind:  name
+        text: "DELETED"
+        change: DELETED
+      }
+      change: DELETED
+    }
+    change: DELETED
+  }
   unit {
     filename: "src.c"
     revision: "0.9.5"

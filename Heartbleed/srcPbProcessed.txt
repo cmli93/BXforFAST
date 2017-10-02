@@ -18,6 +18,25 @@ element {
       tail: ";"
     }
   }
+  child {
+    kind: EXPR_STMT
+    child {
+      kind: EXPR
+      child {
+        kind: NAME
+        text: "c"
+      }
+      child {
+        kind: OPERATOR
+        text: "="
+      }
+      child {
+        kind: NAME
+        text: "b"
+      }
+      tail: ";"
+    }
+  }
   unit {
     filename: "src.c"
     revision: "0.9.5"

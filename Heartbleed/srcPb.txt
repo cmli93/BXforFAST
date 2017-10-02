@@ -1,2 +1,2 @@
 
-child { kind: expr_stmt child { kind: expr child { kind: name text: "a" } child { kind: operator text: "=" } child { kind: name text: "b" } } text: ";" } unit { filename: "src.c" revision: "0.9.5" language: "C" } 
+child { kind: expr_stmt child { kind: expr child { kind: name text: "a" } child { kind: operator text: "=" } child { kind: name text: "b" } } text: ";" } child { kind: expr_stmt child { kind: expr child { kind: name text: "c" } child { kind: operator text: "=" } child { kind: name text: "b" } } text: ";" } unit { filename: "src.c" revision: "0.9.5" language: "C" } 

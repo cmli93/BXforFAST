@@ -16,12 +16,36 @@ element {
       }
       child {
         kind: NAME
-        text: "c"
-        change: CHANGED_FROM
+        text: "b"
       }
       tail: ";"
     }
     tail: "\n"
+  }
+  child {
+    kind: EXPR_STMT
+    text: "DELETED"
+    child {
+      kind: EXPR
+      text: "DELETED"
+      child {
+        kind: NAME
+        text: "DELETED"
+        change: DELETED
+      }
+      child {
+        kind: OPERATOR
+        text: "DELETED"
+        change: DELETED
+      }
+      child {
+        kind: NAME
+        text: "DELETED"
+        change: DELETED
+      }
+      change: DELETED
+    }
+    change: DELETED
   }
   unit {
     filename: "src.c"
