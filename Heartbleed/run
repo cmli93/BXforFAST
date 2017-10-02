@@ -1,0 +1,12 @@
+rm -f *.txt *.pb *AST
+cp test/*.c .
+diff src.c patched.c
+./source2PbText.sh
+fast src.c src.pb
+fast patched.c patched.pb
+fast -D src.pb patched.pb 
+fast -d src=patched-diff.pb-patched.pb.pb > modifiedPbProcessed.txt
+#cp srcPbProcessed.txt modifiedPbProcessed.txt
+#sed -i -e 's/"b"/"c"/' modifiedPbProcessed.txt
+./patchedPbText2Source.sh
+diff src.c patched.c
