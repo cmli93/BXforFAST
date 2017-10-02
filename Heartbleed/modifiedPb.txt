@@ -24,28 +24,23 @@
   
   child {
     kind:  expr_stmt
-    text: "DELETED"
+    text: ""
     child {
       kind:  expr
-      text: "DELETED"
+      text: ""
       child {
         kind:  name
-        text: "DELETED"
-        change: DELETED
+        text: ""
       }
       child {
         kind:  operator
-        text: "DELETED"
-        change: DELETED
+        text: ""
       }
       child {
         kind:  name
-        text: "DELETED"
-        change: DELETED
+        text: ""
       }
-      change: DELETED
     }
-    change: DELETED
   }
   unit {
     filename: "src.c"
