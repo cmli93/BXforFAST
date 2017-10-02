@@ -24,23 +24,26 @@ element {
   }
   child {
     kind: EXPR_STMT
-    text: "#DELETED#"
     child {
       kind: EXPR
-      text: "#DELETED#"
       child {
         kind: NAME
-        text: "#DELETED#"
+        text: "c"
+        tail: " "
       }
       child {
         kind: OPERATOR
-        text: "#DELETED#"
+        text: "="
+        tail: " "
       }
       child {
         kind: NAME
-        text: "#DELETED#"
+        text: "b"
       }
+      tail: ";"
     }
+    tail: "$\n$"
+    change: CHANGED_FROM
   }
   unit {
     filename: "src.c"

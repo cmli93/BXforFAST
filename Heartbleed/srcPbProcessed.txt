@@ -1,4 +1,5 @@
 element {
+  kind: UNIT_KIND
   child {
     kind: EXPR_STMT
     child {
@@ -6,25 +7,6 @@ element {
       child {
         kind: NAME
         text: "a"
-      }
-      child {
-        kind: OPERATOR
-        text: "="
-      }
-      child {
-        kind: NAME
-        text: "b"
-      }
-      tail: ";"
-    }
-  }
-  child {
-    kind: EXPR_STMT
-    child {
-      kind: EXPR
-      child {
-        kind: NAME
-        text: "c"
       }
       child {
         kind: OPERATOR

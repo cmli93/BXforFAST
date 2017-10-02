@@ -1,4 +1,4 @@
-
+element {
   kind:  unit_kind
   child {
     kind:  expr_stmt
@@ -24,24 +24,28 @@
   
   child {
     kind:  expr_stmt
-    text: ""
     child {
       kind:  expr
-      text: ""
       child {
         kind:  name
-        text: ""
-      }
+        text: "c"
+        } text: " "
+      
       child {
         kind:  operator
-        text: ""
-      }
+        text: "="
+        } text: " "
+      
       child {
         kind:  name
-        text: ""
+        text: "b"
       }
-    }
-  }
+      } text: ";"
+    
+    } text: "
+"
+    change: CHANGED_FROM
+  
   unit {
     filename: "src.c"
     revision: "0.9.5"

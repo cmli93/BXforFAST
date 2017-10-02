@@ -6,7 +6,6 @@ fast src.c src.pb
 fast patched.c patched.pb
 fast -D src.pb patched.pb 
 fast -d src=patched-diff.pb-patched.pb > modifiedPbProcessed.txt
-diff modifiedPbProcessed1.txt modifiedPbProcessed.txt
 ./patchedPbText2Source.sh
 diff src.c patched.c
 
