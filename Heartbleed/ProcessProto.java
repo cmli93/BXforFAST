@@ -36,7 +36,7 @@ public class ProcessProto {
         
         String outputString = "";
         
-        outputString += "element {";
+        outputString += "element { kind: UNIT_KIND ";
         
         int i = 0;
         
