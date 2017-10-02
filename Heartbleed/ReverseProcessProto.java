@@ -38,7 +38,8 @@ public class ReverseProcessProto {
         //把pb decode形式转换
         String outputString = "";
  
-        inputString = inputString.replace("element { kind: UNIT_KIND ", "");
+        inputString = inputString.replace("element {", "");
+        inputString = inputString.replace("kind: UNIT_KIND", "");
        
         int i = 0;
         int tempIndex = 0;
