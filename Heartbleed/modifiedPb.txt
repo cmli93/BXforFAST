@@ -1,5 +1,5 @@
 
-  kind:  unit_kind
+  
   child {
     kind:  expr_stmt
     child {
@@ -24,23 +24,28 @@
   
   child {
     kind:  expr_stmt
-    text: ""
+    text: "DELETED"
     child {
       kind:  expr
-      text: ""
+      text: "DELETED"
       child {
         kind:  name
-        text: ""
+        text: "DELETED"
+        change: DELETED
       }
       child {
         kind:  operator
-        text: ""
+        text: "DELETED"
+        change: DELETED
       }
       child {
         kind:  name
-        text: ""
+        text: "DELETED"
+        change: DELETED
       }
+      change: DELETED
     }
+    change: DELETED
   }
   unit {
     filename: "src.c"
