@@ -5,7 +5,7 @@ diff src.c patched.c
 fast src.c src.pb
 fast patched.c patched.pb
 fast -D src.pb patched.pb 
-fast -d src=patched-diff.pb-patched.pb > modifiedPbProcessed.txt
+fast -d src=patched-diff.pb-patched.pb | sed -e "/change: /d"> modifiedPbProcessed.txt
 ./patchedPbText2Source.sh
 diff src.c patched.c
 
