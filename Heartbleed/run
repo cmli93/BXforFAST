@@ -3,6 +3,7 @@ cp openssl/*.c .
 diff src.c patched.c
 ./source2PbText.sh
 fast src.c src.pb
+
 fast patched.c patched.pb
 fast -D src.pb patched.pb 
 fast -d src=patched-diff.pb-patched.pb | sed -e "/change: /d"> modifiedPbProcessed.txt
