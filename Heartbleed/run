@@ -1,11 +1,27 @@
 rm -f *.txt *.pb *AST
 cp openssl/*.c .
 diff src.c patched.c
-./source2PbText.sh
-fast src.c src.pb
 
-fast patched.c patched.pb
+./source2PbText.sh
+
+cp srcAST tempSrcAST
+cp srcProcessed.xml tempSrcProcessed.xml
+cp src.pb tempSrc.pb
+
+cp patched.c src.c
+
+./source2PbText.sh
+
+cp src.pb patched.pb
+
+cp tempSrc.pb src.pb 
+
 fast -D src.pb patched.pb 
 fast -d src=patched-diff.pb-patched.pb | sed -e "/change: /d"> modifiedPbProcessed.txt
+
+cp tempSrcAST srcAST 
+cp tempSrcProcessed.xml srcProcessed.xml 
+
 ./patchedPbText2Source.sh
+
 diff src.c patched.c

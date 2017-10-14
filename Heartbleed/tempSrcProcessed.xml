@@ -1,118 +1,118 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C" filename="src.c"><comment type="block">"/* ssl/d1_both.c */"</comment>
-<comment type="block">"/* $
-$ * DTLS implementation written by Nagendra Modadugu$
-$ * (nagendra@cs.stanford.edu) for the OpenSSL project 2005.  $
-$ */"</comment>
-<comment type="block">"/* ====================================================================$
-$ * Copyright (c) 1998-2005 The OpenSSL Project.  All rights reserved.$
-$ *$
-$ * Redistribution and use in source and binary forms, with or without$
-$ * modification, are permitted provided that the following conditions$
-$ * are met:$
-$ *$
-$ * 1. Redistributions of source code must retain the above copyright$
-$ *    notice, this list of conditions and the following disclaimer. $
-$ *$
-$ * 2. Redistributions in binary form must reproduce the above copyright$
-$ *    notice, this list of conditions and the following disclaimer in$
-$ *    the documentation and/or other materials provided with the$
-$ *    distribution.$
-$ *$
-$ * 3. All advertising materials mentioning features or use of this$
-$ *    software must display the following acknowledgment:$
-$ *    \"This product includes software developed by the OpenSSL Project$
-$ *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)\"$
-$ *$
-$ * 4. The names \"OpenSSL Toolkit\" and \"OpenSSL Project\" must not be used to$
-$ *    endorse or promote products derived from this software without$
-$ *    prior written permission. For written permission, please contact$
-$ *    openssl-core@openssl.org.$
-$ *$
-$ * 5. Products derived from this software may not be called \"OpenSSL\"$
-$ *    nor may \"OpenSSL\" appear in their names without prior written$
-$ *    permission of the OpenSSL Project.$
-$ *$
-$ * 6. Redistributions of any form whatsoever must retain the following$
-$ *    acknowledgment:$
-$ *    \"This product includes software developed by the OpenSSL Project$
-$ *    for use in the OpenSSL Toolkit (http://www.openssl.org/)\"$
-$ *$
-$ * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY$
-$ * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE$
-$ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR$
-$ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR$
-$ * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,$
-$ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT$
-$ * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;$
-$ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)$
-$ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,$
-$ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)$
-$ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED$
-$ * OF THE POSSIBILITY OF SUCH DAMAGE.$
-$ * ====================================================================$
-$ *$
-$ * This product includes cryptographic software written by Eric Young$
-$ * (eay@cryptsoft.com).  This product includes software written by Tim$
-$ * Hudson (tjh@cryptsoft.com).$
-$ *$
-$ */"</comment>
-<comment type="block">"/* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)$
-$ * All rights reserved.$
-$ *$
-$ * This package is an SSL implementation written$
-$ * by Eric Young (eay@cryptsoft.com).$
-$ * The implementation was written so as to conform with Netscapes SSL.$
-$ * $
-$ * This library is free for commercial and non-commercial use as long as$
-$ * the following conditions are aheared to.  The following conditions$
-$ * apply to all code found in this distribution, be it the RC4, RSA,$
-$ * lhash, DES, etc., code; not just the SSL code.  The SSL documentation$
-$ * included with this distribution is covered by the same copyright terms$
-$ * except that the holder is Tim Hudson (tjh@cryptsoft.com).$
-$ * $
-$ * Copyright remains Eric Young's, and as such any Copyright notices in$
-$ * the code are not to be removed.$
-$ * If this package is used in a product, Eric Young should be given attribution$
-$ * as the author of the parts of the library used.$
-$ * This can be in the form of a textual message at program startup or$
-$ * in documentation (online or textual) provided with the package.$
-$ * $
-$ * Redistribution and use in source and binary forms, with or without$
-$ * modification, are permitted provided that the following conditions$
-$ * are met:$
-$ * 1. Redistributions of source code must retain the copyright$
-$ *    notice, this list of conditions and the following disclaimer.$
-$ * 2. Redistributions in binary form must reproduce the above copyright$
-$ *    notice, this list of conditions and the following disclaimer in the$
-$ *    documentation and/or other materials provided with the distribution.$
-$ * 3. All advertising materials mentioning features or use of this software$
-$ *    must display the following acknowledgement:$
-$ *    \"This product includes cryptographic software written by$
-$ *     Eric Young (eay@cryptsoft.com)\"$
-$ *    The word 'cryptographic' can be left out if the rouines from the library$
-$ *    being used are not cryptographic related :-).$
-$ * 4. If you include any Windows specific code (or a derivative thereof) from $
-$ *    the apps directory (application code) you must include an acknowledgement:$
-$ *    \"This product includes software written by Tim Hudson (tjh@cryptsoft.com)\"$
-$ * $
-$ * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND$
-$ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE$
-$ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE$
-$ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE$
-$ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL$
-$ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS$
-$ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)$
-$ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT$
-$ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY$
-$ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF$
-$ * SUCH DAMAGE.$
-$ * $
-$ * The licence and distribution terms for any publically available version or$
-$ * derivative of this code cannot be changed.  i.e. this code cannot simply be$
-$ * copied and put under another distribution licence$
-$ * [including the GNU Public Licence.]$
-$ */"</comment>
+<comment type="block">"/* 
+ * DTLS implementation written by Nagendra Modadugu
+ * (nagendra@cs.stanford.edu) for the OpenSSL project 2005.  
+ */"</comment>
+<comment type="block">"/* ====================================================================
+ * Copyright (c) 1998-2005 The OpenSSL Project.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer. 
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in
+ *    the documentation and/or other materials provided with the
+ *    distribution.
+ *
+ * 3. All advertising materials mentioning features or use of this
+ *    software must display the following acknowledgment:
+ *    \"This product includes software developed by the OpenSSL Project
+ *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)\"
+ *
+ * 4. The names \"OpenSSL Toolkit\" and \"OpenSSL Project\" must not be used to
+ *    endorse or promote products derived from this software without
+ *    prior written permission. For written permission, please contact
+ *    openssl-core@openssl.org.
+ *
+ * 5. Products derived from this software may not be called \"OpenSSL\"
+ *    nor may \"OpenSSL\" appear in their names without prior written
+ *    permission of the OpenSSL Project.
+ *
+ * 6. Redistributions of any form whatsoever must retain the following
+ *    acknowledgment:
+ *    \"This product includes software developed by the OpenSSL Project
+ *    for use in the OpenSSL Toolkit (http://www.openssl.org/)\"
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY
+ * EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR
+ * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ * NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
+ * ====================================================================
+ *
+ * This product includes cryptographic software written by Eric Young
+ * (eay@cryptsoft.com).  This product includes software written by Tim
+ * Hudson (tjh@cryptsoft.com).
+ *
+ */"</comment>
+<comment type="block">"/* Copyright (C) 1995-1998 Eric Young (eay@cryptsoft.com)
+ * All rights reserved.
+ *
+ * This package is an SSL implementation written
+ * by Eric Young (eay@cryptsoft.com).
+ * The implementation was written so as to conform with Netscapes SSL.
+ * 
+ * This library is free for commercial and non-commercial use as long as
+ * the following conditions are aheared to.  The following conditions
+ * apply to all code found in this distribution, be it the RC4, RSA,
+ * lhash, DES, etc., code; not just the SSL code.  The SSL documentation
+ * included with this distribution is covered by the same copyright terms
+ * except that the holder is Tim Hudson (tjh@cryptsoft.com).
+ * 
+ * Copyright remains Eric Young's, and as such any Copyright notices in
+ * the code are not to be removed.
+ * If this package is used in a product, Eric Young should be given attribution
+ * as the author of the parts of the library used.
+ * This can be in the form of a textual message at program startup or
+ * in documentation (online or textual) provided with the package.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ * 3. All advertising materials mentioning features or use of this software
+ *    must display the following acknowledgement:
+ *    \"This product includes cryptographic software written by
+ *     Eric Young (eay@cryptsoft.com)\"
+ *    The word 'cryptographic' can be left out if the rouines from the library
+ *    being used are not cryptographic related :-).
+ * 4. If you include any Windows specific code (or a derivative thereof) from 
+ *    the apps directory (application code) you must include an acknowledgement:
+ *    \"This product includes software written by Tim Hudson (tjh@cryptsoft.com)\"
+ * 
+ * THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ * 
+ * The licence and distribution terms for any publically available version or
+ * derivative of this code cannot be changed.  i.e. this code cannot simply be
+ * copied and put under another distribution licence
+ * [including the GNU Public Licence.]
+ */"</comment>
 
 <cpp:include>"#"<cpp:directive>"include"</cpp:directive> <cpp:file>"&lt;limits.h&gt;"</cpp:file></cpp:include>
 <cpp:include>"#"<cpp:directive>"include"</cpp:directive> <cpp:file>"&lt;string.h&gt;"</cpp:file></cpp:include>
@@ -126,31 +126,31 @@ $ */"</comment>
 
 <cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_SIZE"</name><parameter_list>"("<parameter><type><name>"msg_len"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"(((msg_len) + 7) / 8)"</cpp:value></cpp:define>
 
-<cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_MARK"</name><parameter_list>"("<parameter><type><name>"bitmask"</name></type></parameter>"," <parameter><type><name>"start"</name></type></parameter>"," <parameter><type><name>"end"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"{ \\$
-$                        if ((end) - (start) &lt;= 8) { \\$
-$                                long ii; \\$
-$                                for (ii = (start); ii &lt; (end); ii++) bitmask[((ii) &gt;&gt; 3)] |= (1 &lt;&lt; ((ii) &amp; 7)); \\$
-$                        } else { \\$
-$                                long ii; \\$
-$                                bitmask[((start) &gt;&gt; 3)] |= bitmask_start_values[((start) &amp; 7)]; \\$
-$                                for (ii = (((start) &gt;&gt; 3) + 1); ii &lt; ((((end) - 1)) &gt;&gt; 3); ii++) bitmask[ii] = 0xff; \\$
-$                                bitmask[(((end) - 1) &gt;&gt; 3)] |= bitmask_end_values[((end) &amp; 7)]; \\$
-$                        } }"</cpp:value></cpp:define>
+<cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_MARK"</name><parameter_list>"("<parameter><type><name>"bitmask"</name></type></parameter>"," <parameter><type><name>"start"</name></type></parameter>"," <parameter><type><name>"end"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"{ \\
+                        if ((end) - (start) &lt;= 8) { \\
+                                long ii; \\
+                                for (ii = (start); ii &lt; (end); ii++) bitmask[((ii) &gt;&gt; 3)] |= (1 &lt;&lt; ((ii) &amp; 7)); \\
+                        } else { \\
+                                long ii; \\
+                                bitmask[((start) &gt;&gt; 3)] |= bitmask_start_values[((start) &amp; 7)]; \\
+                                for (ii = (((start) &gt;&gt; 3) + 1); ii &lt; ((((end) - 1)) &gt;&gt; 3); ii++) bitmask[ii] = 0xff; \\
+                                bitmask[(((end) - 1) &gt;&gt; 3)] |= bitmask_end_values[((end) &amp; 7)]; \\
+                        } }"</cpp:value></cpp:define>
 
-<cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_IS_COMPLETE"</name><parameter_list>"("<parameter><type><name>"bitmask"</name></type></parameter>"," <parameter><type><name>"msg_len"</name></type></parameter>"," <parameter><type><name>"is_complete"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"{ \\$
-$                        long ii; \\$
-$                        OPENSSL_assert((msg_len) &gt; 0); \\$
-$                        is_complete = 1; \\$
-$                        if (bitmask[(((msg_len) - 1) &gt;&gt; 3)] != bitmask_end_values[((msg_len) &amp; 7)]) is_complete = 0; \\$
-$                        if (is_complete) for (ii = (((msg_len) - 1) &gt;&gt; 3) - 1; ii &gt;= 0 ; ii--) \\$
-$                                if (bitmask[ii] != 0xff) { is_complete = 0; break; } }"</cpp:value></cpp:define>
+<cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_IS_COMPLETE"</name><parameter_list>"("<parameter><type><name>"bitmask"</name></type></parameter>"," <parameter><type><name>"msg_len"</name></type></parameter>"," <parameter><type><name>"is_complete"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"{ \\
+                        long ii; \\
+                        OPENSSL_assert((msg_len) &gt; 0); \\
+                        is_complete = 1; \\
+                        if (bitmask[(((msg_len) - 1) &gt;&gt; 3)] != bitmask_end_values[((msg_len) &amp; 7)]) is_complete = 0; \\
+                        if (is_complete) for (ii = (((msg_len) - 1) &gt;&gt; 3) - 1; ii &gt;= 0 ; ii--) \\
+                                if (bitmask[ii] != 0xff) { is_complete = 0; break; } }"</cpp:value></cpp:define>
 
 <cpp:if>"#"<cpp:directive>"if"</cpp:directive> <expr><literal type="number">"0"</literal></expr></cpp:if>
-<cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_PRINT"</name><parameter_list>"("<parameter><type><name>"bitmask"</name></type></parameter>"," <parameter><type><name>"msg_len"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"{ \\$
-$                        long ii; \\$
-$                        printf(\"bitmask: \"); for (ii = 0; ii &lt; (msg_len); ii++) \\$
-$                        printf(\"%d \", (bitmask[ii &gt;&gt; 3] &amp; (1 &lt;&lt; (ii &amp; 7))) &gt;&gt; (ii &amp; 7)); \\$
-$                        printf(\"\\n\"); }"</cpp:value></cpp:define>
+<cpp:define>"#"<cpp:directive>"define"</cpp:directive> <cpp:macro><name>"RSMBLY_BITMASK_PRINT"</name><parameter_list>"("<parameter><type><name>"bitmask"</name></type></parameter>"," <parameter><type><name>"msg_len"</name></type></parameter>")"</parameter_list></cpp:macro> <cpp:value>"{ \\
+                        long ii; \\
+                        printf(\"bitmask: \"); for (ii = 0; ii &lt; (msg_len); ii++) \\
+                        printf(\"%d \", (bitmask[ii &gt;&gt; 3] &amp; (1 &lt;&lt; (ii &amp; 7))) &gt;&gt; (ii &amp; 7)); \\
+                        printf(\"\\n\"); }"</cpp:value></cpp:define>
 <cpp:endif>"#"<cpp:directive>"endif"</cpp:directive></cpp:endif>
 
 <decl_stmt><decl><specifier>"static"</specifier> <type><name>"unsigned"</name> <name>"char"</name></type> <name><name>"bitmask_start_values"</name><index>"[]"</index></name> <init>"=" <expr><block>"{"<expr><literal type="number">"0xff"</literal></expr>"," <expr><literal type="number">"0xfe"</literal></expr>"," <expr><literal type="number">"0xfc"</literal></expr>"," <expr><literal type="number">"0xf8"</literal></expr>"," <expr><literal type="number">"0xf0"</literal></expr>"," <expr><literal type="number">"0xe0"</literal></expr>"," <expr><literal type="number">"0xc0"</literal></expr>"," <expr><literal type="number">"0x80"</literal></expr>"}"</block></expr></init></decl>";"</decl_stmt>
@@ -239,8 +239,8 @@ $                        printf(\"\\n\"); }"</cpp:value></cpp:define>
                 <expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"mtu"</name></name> <operator>"="</operator> 
                         <call><name>"BIO_ctrl"</name><argument_list>"("<argument><expr><call><name>"SSL_get_wbio"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>")"</argument_list></call></expr></argument>"," <argument><expr><name>"BIO_CTRL_DGRAM_QUERY_MTU"</name></expr></argument>"," <argument><expr><literal type="number">"0"</literal></expr></argument>"," <argument><expr><name>"NULL"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
-                <comment type="block">"/* I've seen the kernel return bogus numbers when it doesn't know$
-$                 * (initial write), so just make sure we have a reasonable number */"</comment>
+                <comment type="block">"/* I've seen the kernel return bogus numbers when it doesn't know
+                 * (initial write), so just make sure we have a reasonable number */"</comment>
                 <if>"if" <condition>"("<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"mtu"</name></name> <operator>"&lt;"</operator> <call><name>"dtls1_min_mtu"</name><argument_list>"()"</argument_list></call></expr>")"</condition><then>
                         <block>"{"
                         <expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"mtu"</name></name> <operator>"="</operator> <literal type="number">"0"</literal></expr>";"</expr_stmt>
@@ -250,26 +250,26 @@ $                 * (initial write), so just make sure we have a reasonable numb
                         "}"</block></then></if>
                 "}"</block></then></if>
 <cpp:if>"#"<cpp:directive>"if"</cpp:directive> <expr><literal type="number">"0"</literal></expr></cpp:if> 
-        "mtu = s-&gt;d1-&gt;mtu;$
-$$
-$        fprintf(stderr, \"using MTU = %d\\n\", mtu);$
-$$
-$        mtu -= (DTLS1_HM_HEADER_LENGTH + DTLS1_RT_HEADER_LENGTH);$
-$$
-$        curr_mtu = mtu - BIO_wpending(SSL_get_wbio(s));$
-$$
-$        if ( curr_mtu &gt; 0)$
-$                mtu = curr_mtu;$
-$        else if ( ( ret = BIO_flush(SSL_get_wbio(s))) &lt;= 0)$
-$                return ret;$
-$$
-$        if ( BIO_wpending(SSL_get_wbio(s)) + s-&gt;init_num &gt;= mtu)$
-$                {$
-$                ret = BIO_flush(SSL_get_wbio(s));$
-$                if ( ret &lt;= 0)$
-$                        return ret;$
-$                mtu = s-&gt;d1-&gt;mtu - (DTLS1_HM_HEADER_LENGTH + DTLS1_RT_HEADER_LENGTH);$
-$                }"
+        "mtu = s-&gt;d1-&gt;mtu;
+
+        fprintf(stderr, \"using MTU = %d\\n\", mtu);
+
+        mtu -= (DTLS1_HM_HEADER_LENGTH + DTLS1_RT_HEADER_LENGTH);
+
+        curr_mtu = mtu - BIO_wpending(SSL_get_wbio(s));
+
+        if ( curr_mtu &gt; 0)
+                mtu = curr_mtu;
+        else if ( ( ret = BIO_flush(SSL_get_wbio(s))) &lt;= 0)
+                return ret;
+
+        if ( BIO_wpending(SSL_get_wbio(s)) + s-&gt;init_num &gt;= mtu)
+                {
+                ret = BIO_flush(SSL_get_wbio(s));
+                if ( ret &lt;= 0)
+                        return ret;
+                mtu = s-&gt;d1-&gt;mtu - (DTLS1_HM_HEADER_LENGTH + DTLS1_RT_HEADER_LENGTH);
+                }"
 <cpp:endif>"#"<cpp:directive>"endif"</cpp:directive></cpp:endif>
 
         <expr_stmt><expr><call><name>"OPENSSL_assert"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"mtu"</name></name> <operator>"&gt;="</operator> <call><name>"dtls1_min_mtu"</name><argument_list>"()"</argument_list></call></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>  <comment type="block">"/* should have something reasonable now */"</comment>
@@ -338,12 +338,12 @@ $                }"
                         <argument><expr><name>"len"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
                 <if>"if" <condition>"("<expr><name>"ret"</name> <operator>"&lt;"</operator> <literal type="number">"0"</literal></expr>")"</condition><then>
                         <block>"{"
-                        <comment type="block">"/* might need to update MTU here, but we don't know$
-$                         * which previous packet caused the failure -- so can't$
-$                         * really retransmit anything.  continue as if everything$
-$                         * is fine and wait for an alert to handle the$
-$                         * retransmit $
-$                         */"</comment>
+                        <comment type="block">"/* might need to update MTU here, but we don't know
+                         * which previous packet caused the failure -- so can't
+                         * really retransmit anything.  continue as if everything
+                         * is fine and wait for an alert to handle the
+                         * retransmit 
+                         */"</comment>
                         <if>"if" <condition>"(" <expr><call><name>"BIO_ctrl"</name><argument_list>"("<argument><expr><call><name>"SSL_get_wbio"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>")"</argument_list></call></expr></argument>","
                                 <argument><expr><name>"BIO_CTRL_DGRAM_MTU_EXCEEDED"</name></expr></argument>"," <argument><expr><literal type="number">"0"</literal></expr></argument>"," <argument><expr><name>"NULL"</name></expr></argument>")"</argument_list></call> <operator>"&gt;"</operator> <literal type="number">"0"</literal></expr> ")"</condition><then>
                                 <block type="pseudo"><expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"mtu"</name></name> <operator>"="</operator> <call><name>"BIO_ctrl"</name><argument_list>"("<argument><expr><call><name>"SSL_get_wbio"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>")"</argument_list></call></expr></argument>","
@@ -354,22 +354,22 @@ $                         */"</comment>
                 <else>"else"
                         <block>"{"
 
-                        <comment type="block">"/* bad if this assert fails, only part of the handshake$
-$                         * message got sent.  but why would this happen? */"</comment>
+                        <comment type="block">"/* bad if this assert fails, only part of the handshake
+                         * message got sent.  but why would this happen? */"</comment>
                         <expr_stmt><expr><call><name>"OPENSSL_assert"</name><argument_list>"("<argument><expr><name>"len"</name> <operator>"=="</operator> <operator>"("</operator><name>"unsigned"</name> <name>"int"</name><operator>")"</operator><name>"ret"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
                         <if>"if" <condition>"("<expr><name>"type"</name> <operator>"=="</operator> <name>"SSL3_RT_HANDSHAKE"</name> <operator>"&amp;&amp;"</operator> <operator>"!"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"retransmitting"</name></name></expr>")"</condition><then>
                                 <block>"{"
-                                <comment type="block">"/* should not be done for 'Hello Request's, but in that case$
-$                                 * we'll ignore the result anyway */"</comment>
+                                <comment type="block">"/* should not be done for 'Hello Request's, but in that case
+                                 * we'll ignore the result anyway */"</comment>
                                 <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name> <modifier>"*"</modifier></type><name>"p"</name> <init>"=" <expr><operator>"("</operator><name>"unsigned"</name> <name>"char"</name> <operator>"*"</operator><operator>")"</operator><operator>"&amp;"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"init_buf"</name><operator>"-&gt;"</operator><name>"data"</name><index>"["<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"init_off"</name></name></expr>"]"</index></name></expr></init></decl>";"</decl_stmt>
                                 <decl_stmt><decl><type><specifier>"const"</specifier> <name><name>"struct"</name> <name>"hm_header_st"</name></name> <modifier>"*"</modifier></type><name>"msg_hdr"</name> <init>"=" <expr><operator>"&amp;"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"w_msg_hdr"</name></name></expr></init></decl>";"</decl_stmt>
                                 <decl_stmt><decl><type><name>"int"</name></type> <name>"xlen"</name></decl>";"</decl_stmt>
 
                                 <if>"if" <condition>"("<expr><name>"frag_off"</name> <operator>"=="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"version"</name></name> <operator>"!="</operator> <name>"DTLS1_BAD_VER"</name></expr>")"</condition><then>
                                         <block>"{"
-                                        <comment type="block">"/* reconstruct message header is if it$
-$                                         * is being sent in single fragment */"</comment>
+                                        <comment type="block">"/* reconstruct message header is if it
+                                         * is being sent in single fragment */"</comment>
                                         <expr_stmt><expr><operator>"*"</operator><name>"p"</name><operator>"++"</operator> <operator>"="</operator> <name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"type"</name></name></expr>";"</expr_stmt>
                                         <expr_stmt><expr><call><name>"l2n3"</name><argument_list>"("<argument><expr><name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"msg_len"</name></name></expr></argument>","<argument><expr><name>"p"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
                                         <expr_stmt><expr><call><name>"s2n"</name> <argument_list>"("<argument><expr><name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"seq"</name></name></expr></argument>","<argument><expr><name>"p"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
@@ -408,11 +408,11 @@ $                                         * is being sent in single fragment */"
         "}"</block></function>
 
 
-<comment type="block">"/* Obtain handshake message of message type 'mt' (any if mt == -1),$
-$ * maximum acceptable body length 'max'.$
-$ * Read an entire handshake message.  Handshake messages arrive in$
-$ * fragments.$
-$ */"</comment>
+<comment type="block">"/* Obtain handshake message of message type 'mt' (any if mt == -1),
+ * maximum acceptable body length 'max'.
+ * Read an entire handshake message.  Handshake messages arrive in
+ * fragments.
+ */"</comment>
 <function><type><name>"long"</name></type> <name>"dtls1_get_message"</name><parameter_list>"("<parameter><decl><type><name>"SSL"</name> <modifier>"*"</modifier></type><name>"s"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name></type> <name>"st1"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name></type> <name>"stn"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name></type> <name>"mt"</name></decl></parameter>"," <parameter><decl><type><name>"long"</name></type> <name>"max"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name> <modifier>"*"</modifier></type><name>"ok"</name></decl></parameter>")"</parameter_list>
         <block>"{"
         <decl_stmt><decl><type><name>"int"</name></type> <name>"i"</name></decl>"," <decl><type ref="prev"/><name>"al"</name></decl>";"</decl_stmt>
@@ -420,8 +420,8 @@ $ */"</comment>
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name> <modifier>"*"</modifier></type><name>"p"</name></decl>";"</decl_stmt>
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"long"</name></type> <name>"msg_len"</name></decl>";"</decl_stmt>
 
-        <comment type="block">"/* s3-&gt;tmp is used to store messages that are unexpected, caused$
-$         * by the absence of an optional handshake message */"</comment>
+        <comment type="block">"/* s3-&gt;tmp is used to store messages that are unexpected, caused
+         * by the absence of an optional handshake message */"</comment>
         <if>"if" <condition>"("<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"tmp"</name><operator>"."</operator><name>"reuse_message"</name></name></expr>")"</condition><then>
                 <block>"{"
                 <expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"tmp"</name><operator>"."</operator><name>"reuse_message"</name></name><operator>"="</operator><literal type="number">"0"</literal></expr>";"</expr_stmt>
@@ -507,8 +507,8 @@ $         * by the absence of an optional handshake message */"</comment>
 
         <if>"if" <condition>"(" <expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"r_msg_hdr"</name><operator>"."</operator><name>"frag_off"</name></name> <operator>"=="</operator> <literal type="number">"0"</literal></expr>")"</condition><then> <comment type="block">"/* first fragment */"</comment>
                 <block>"{"
-                <comment type="block">"/* msg_len is limited to 2^24, but is effectively checked$
-$                 * against max above */"</comment>
+                <comment type="block">"/* msg_len is limited to 2^24, but is effectively checked
+                 * against max above */"</comment>
                 <if>"if" <condition>"("<expr><operator>"!"</operator><call><name>"BUF_MEM_grow_clean"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"init_buf"</name></name></expr></argument>","<argument><expr><name>"msg_len"</name><operator>"+"</operator><name>"DTLS1_HM_HEADER_LENGTH"</name></expr></argument>")"</argument_list></call></expr>")"</condition><then>
                         <block>"{"
                         <expr_stmt><expr><call><name>"SSLerr"</name><argument_list>"("<argument><expr><name>"SSL_F_DTLS1_PREPROCESS_FRAGMENT"</name></expr></argument>","<argument><expr><name>"ERR_R_BUF_LIB"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
@@ -523,8 +523,8 @@ $                 * against max above */"</comment>
                 "}"</block></then>
         <elseif>"else" <if>"if" <condition>"("<expr><name>"msg_len"</name> <operator>"!="</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"r_msg_hdr"</name><operator>"."</operator><name>"msg_len"</name></name></expr>")"</condition><then>
                 <block>"{"
-                <comment type="block">"/* They must be playing with us! BTW, failure to enforce$
-$                 * upper limit would open possibility for buffer overrun. */"</comment>
+                <comment type="block">"/* They must be playing with us! BTW, failure to enforce
+                 * upper limit would open possibility for buffer overrun. */"</comment>
                 <expr_stmt><expr><call><name>"SSLerr"</name><argument_list>"("<argument><expr><name>"SSL_F_DTLS1_PREPROCESS_FRAGMENT"</name></expr></argument>","<argument><expr><name>"SSL_R_EXCESSIVE_MESSAGE_SIZE"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
                 <return>"return" <expr><name>"SSL_AD_ILLEGAL_PARAMETER"</name></expr>";"</return>
                 "}"</block></then></if></elseif></if>
@@ -536,11 +536,11 @@ $                 * upper limit would open possibility for buffer overrun. */"</
 <function><specifier>"static"</specifier> <type><name>"int"</name></type>
 <name>"dtls1_retrieve_buffered_fragment"</name><parameter_list>"("<parameter><decl><type><name>"SSL"</name> <modifier>"*"</modifier></type><name>"s"</name></decl></parameter>"," <parameter><decl><type><name>"long"</name></type> <name>"max"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name> <modifier>"*"</modifier></type><name>"ok"</name></decl></parameter>")"</parameter_list>
         <block>"{"
-        <comment type="block">"/* (0) check whether the desired fragment is available$
-$         * if so:$
-$         * (1) copy over the fragment to s-&gt;init_buf-&gt;data[]$
-$         * (2) update s-&gt;init_num$
-$         */"</comment>
+        <comment type="block">"/* (0) check whether the desired fragment is available
+         * if so:
+         * (1) copy over the fragment to s-&gt;init_buf-&gt;data[]
+         * (2) update s-&gt;init_num
+         */"</comment>
         <decl_stmt><decl><type><name>"pitem"</name> <modifier>"*"</modifier></type><name>"item"</name></decl>";"</decl_stmt>
         <decl_stmt><decl><type><name>"hm_fragment"</name> <modifier>"*"</modifier></type><name>"frag"</name></decl>";"</decl_stmt>
         <decl_stmt><decl><type><name>"int"</name></type> <name>"al"</name></decl>";"</decl_stmt>
@@ -601,9 +601,9 @@ $         */"</comment>
         <if>"if" <condition>"("<expr><operator>"("</operator><name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"frag_off"</name></name><operator>"+"</operator><name>"frag_len"</name><operator>")"</operator> <operator>"&gt;"</operator> <name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"msg_len"</name></name></expr>")"</condition><then>
                 <block type="pseudo"><goto>"goto" <name>"err"</name>";"</goto></block></then></if>
 
-        <comment type="block">"/* Determine maximum allowed message size. Depends on (user set)$
-$         * maximum certificate length, but 16k is minimum.$
-$         */"</comment>
+        <comment type="block">"/* Determine maximum allowed message size. Depends on (user set)
+         * maximum certificate length, but 16k is minimum.
+         */"</comment>
         <if>"if" <condition>"("<expr><name>"DTLS1_HM_HEADER_LENGTH"</name> <operator>"+"</operator> <name>"SSL3_RT_MAX_ENCRYPTED_LENGTH"</name> <operator>"&lt;"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"max_cert_list"</name></name></expr>")"</condition><then>
                 <block type="pseudo"><expr_stmt><expr><name>"max_len"</name> <operator>"="</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"max_cert_list"</name></name></expr>";"</expr_stmt></block></then>
         <else>"else"
@@ -630,9 +630,9 @@ $         */"</comment>
         <else>"else"
                 <block type="pseudo"><expr_stmt><expr><name>"frag"</name> <operator>"="</operator> <operator>"("</operator><name>"hm_fragment"</name><operator>"*"</operator><operator>")"</operator> <name><name>"item"</name><operator>"-&gt;"</operator><name>"data"</name></name></expr>";"</expr_stmt></block></else></if>
 
-        <comment type="block">"/* If message is already reassembled, this must be a$
-$         * retransmit and can be dropped.$
-$         */"</comment>
+        <comment type="block">"/* If message is already reassembled, this must be a
+         * retransmit and can be dropped.
+         */"</comment>
         <if>"if" <condition>"("<expr><name><name>"frag"</name><operator>"-&gt;"</operator><name>"reassembly"</name></name> <operator>"=="</operator> <name>"NULL"</name></expr>")"</condition><then>
                 <block>"{"
                 <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name></type> <name><name>"devnull"</name> <index>"["<expr><literal type="number">"256"</literal></expr>"]"</index></name></decl>";"</decl_stmt>
@@ -710,17 +710,17 @@ $         */"</comment>
         <expr_stmt><expr><name><name>"seq64be"</name><index>"["<expr><literal type="number">"7"</literal></expr>"]"</index></name> <operator>"="</operator> <operator>"("</operator><name>"unsigned"</name> <name>"char"</name><operator>")"</operator> <name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"seq"</name></name></expr>";"</expr_stmt>
         <expr_stmt><expr><name>"item"</name> <operator>"="</operator> <call><name>"pqueue_find"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"buffered_messages"</name></name></expr></argument>"," <argument><expr><name>"seq64be"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
-        <comment type="block">"/* If we already have an entry and this one is a fragment,$
-$         * don't discard it and rather try to reassemble it.$
-$         */"</comment>
+        <comment type="block">"/* If we already have an entry and this one is a fragment,
+         * don't discard it and rather try to reassemble it.
+         */"</comment>
         <if>"if" <condition>"("<expr><name>"item"</name> <operator>"!="</operator> <name>"NULL"</name> <operator>"&amp;&amp;"</operator> <name>"frag_len"</name> <operator>"&lt;"</operator> <name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"msg_len"</name></name></expr>")"</condition><then>
                 <block type="pseudo"><expr_stmt><expr><name>"item"</name> <operator>"="</operator> <name>"NULL"</name></expr>";"</expr_stmt></block></then></if>
 
-        <comment type="block">"/* Discard the message if sequence number was already there, is$
-$         * too far in the future, already in the queue or if we received$
-$         * a FINISHED before the SERVER_HELLO, which then must be a stale$
-$         * retransmit.$
-$         */"</comment>
+        <comment type="block">"/* Discard the message if sequence number was already there, is
+         * too far in the future, already in the queue or if we received
+         * a FINISHED before the SERVER_HELLO, which then must be a stale
+         * retransmit.
+         */"</comment>
         <if>"if" <condition>"("<expr><name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"seq"</name></name> <operator>"&lt;="</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"handshake_read_seq"</name></name> <operator>"||"</operator>
                 <name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"seq"</name></name> <operator>"&gt;"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"handshake_read_seq"</name></name> <operator>"+"</operator> <literal type="number">"10"</literal> <operator>"||"</operator> <name>"item"</name> <operator>"!="</operator> <name>"NULL"</name> <operator>"||"</operator>
                 <operator>"("</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"handshake_read_seq"</name></name> <operator>"=="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name><name>"msg_hdr"</name><operator>"-&gt;"</operator><name>"type"</name></name> <operator>"=="</operator> <name>"SSL3_MT_FINISHED"</name><operator>")"</operator></expr>")"</condition><then>
@@ -812,12 +812,12 @@ $         */"</comment>
         <comment type="block">"/* parse the message fragment header */"</comment>
         <expr_stmt><expr><call><name>"dtls1_get_message_header"</name><argument_list>"("<argument><expr><name>"wire"</name></expr></argument>"," <argument><expr><operator>"&amp;"</operator><name>"msg_hdr"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
-        <comment type="block">"/* $
-$         * if this is a future (or stale) message it gets buffered$
-$         * (or dropped)--no further processing at this time$
-$         * While listening, we accept seq 1 (ClientHello with cookie)$
-$         * although we're still expecting seq 0 (ClientHello)$
-$         */"</comment>
+        <comment type="block">"/* 
+         * if this is a future (or stale) message it gets buffered
+         * (or dropped)--no further processing at this time
+         * While listening, we accept seq 1 (ClientHello with cookie)
+         * although we're still expecting seq 0 (ClientHello)
+         */"</comment>
         <if>"if" <condition>"("<expr><name><name>"msg_hdr"</name><operator>"."</operator><name>"seq"</name></name> <operator>"!="</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"handshake_read_seq"</name></name> <operator>"&amp;&amp;"</operator> <operator>"!"</operator><operator>"("</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"listen"</name></name> <operator>"&amp;&amp;"</operator> <name><name>"msg_hdr"</name><operator>"."</operator><name>"seq"</name></name> <operator>"=="</operator> <literal type="number">"1"</literal><operator>")"</operator></expr>")"</condition><then>
                 <block type="pseudo"><return>"return" <expr><call><name>"dtls1_process_out_of_seq_message"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>"," <argument><expr><operator>"&amp;"</operator><name>"msg_hdr"</name></expr></argument>"," <argument><expr><name>"ok"</name></expr></argument>")"</argument_list></call></expr>";"</return></block></then></if>
 
@@ -831,10 +831,10 @@ $         */"</comment>
         <if>"if" <condition>"("<expr><operator>"!"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"server"</name></name> <operator>"&amp;&amp;"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"r_msg_hdr"</name><operator>"."</operator><name>"frag_off"</name></name> <operator>"=="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator>
                 <name><name>"wire"</name><index>"["<expr><literal type="number">"0"</literal></expr>"]"</index></name> <operator>"=="</operator> <name>"SSL3_MT_HELLO_REQUEST"</name></expr>")"</condition><then>
                 <block>"{"
-                <comment type="block">"/* The server may always send 'Hello Request' messages --$
-$                 * we are doing a handshake anyway now, so ignore them$
-$                 * if their format is correct. Does not count for$
-$                 * 'Finished' MAC. */"</comment>
+                <comment type="block">"/* The server may always send 'Hello Request' messages --
+                 * we are doing a handshake anyway now, so ignore them
+                 * if their format is correct. Does not count for
+                 * 'Finished' MAC. */"</comment>
                 <if>"if" <condition>"("<expr><name><name>"wire"</name><index>"["<expr><literal type="number">"1"</literal></expr>"]"</index></name> <operator>"=="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name><name>"wire"</name><index>"["<expr><literal type="number">"2"</literal></expr>"]"</index></name> <operator>"=="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name><name>"wire"</name><index>"["<expr><literal type="number">"3"</literal></expr>"]"</index></name> <operator>"=="</operator> <literal type="number">"0"</literal></expr>")"</condition><then>
                         <block>"{"
                         <if>"if" <condition>"("<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name></expr>")"</condition><then>
@@ -877,8 +877,8 @@ $                 * 'Finished' MAC. */"</comment>
         <else>"else"
                 <block type="pseudo"><expr_stmt><expr><name>"i"</name> <operator>"="</operator> <literal type="number">"0"</literal></expr>";"</expr_stmt></block></else></if>
 
-        <comment type="block">"/* XDTLS:  an incorrectly formatted fragment should cause the $
-$         * handshake to fail */"</comment>
+        <comment type="block">"/* XDTLS:  an incorrectly formatted fragment should cause the 
+         * handshake to fail */"</comment>
         <if>"if" <condition>"("<expr><name>"i"</name> <operator>"!="</operator> <operator>"("</operator><name>"int"</name><operator>")"</operator><name>"frag_len"</name></expr>")"</condition><then>
                 <block>"{"
                 <expr_stmt><expr><name>"al"</name><operator>"="</operator><name>"SSL3_AD_ILLEGAL_PARAMETER"</name></expr>";"</expr_stmt>
@@ -888,10 +888,10 @@ $         * handshake to fail */"</comment>
 
         <expr_stmt><expr><operator>"*"</operator><name>"ok"</name> <operator>"="</operator> <literal type="number">"1"</literal></expr>";"</expr_stmt>
 
-        <comment type="block">"/* Note that s-&gt;init_num is *not* used as current offset in$
-$         * s-&gt;init_buf-&gt;data, but as a counter summing up fragments'$
-$         * lengths: as soon as they sum up to handshake packet$
-$         * length, we assume we have got all the fragments. */"</comment>
+        <comment type="block">"/* Note that s-&gt;init_num is *not* used as current offset in
+         * s-&gt;init_buf-&gt;data, but as a counter summing up fragments'
+         * lengths: as soon as they sum up to handshake packet
+         * length, we assume we have got all the fragments. */"</comment>
         <expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"init_num"</name></name> <operator>"="</operator> <name>"frag_len"</name></expr>";"</expr_stmt>
         <return>"return" <expr><name>"frag_len"</name></expr>";"</return>
 
@@ -921,9 +921,9 @@ $         * length, we assume we have got all the fragments. */"</comment>
                 <expr_stmt><expr><name>"p"</name><operator>"+="</operator><name>"i"</name></expr>";"</expr_stmt>
                 <expr_stmt><expr><name>"l"</name><operator>"="</operator><name>"i"</name></expr>";"</expr_stmt>
 
-        <comment type="block">"/* Copy the finished so we can use it for$
-$         * renegotiation checks$
-$         */"</comment>
+        <comment type="block">"/* Copy the finished so we can use it for
+         * renegotiation checks
+         */"</comment>
         <if>"if"<condition>"("<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"type"</name></name> <operator>"=="</operator> <name>"SSL_ST_CONNECT"</name></expr>")"</condition><then>
                 <block>"{"
                 <expr_stmt><expr><call><name>"OPENSSL_assert"</name><argument_list>"("<argument><expr><name>"i"</name> <operator>"&lt;="</operator> <name>"EVP_MAX_MD_SIZE"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
@@ -940,9 +940,9 @@ $         */"</comment>
                 "}"</block></else></if>
 
 <cpp:ifdef>"#"<cpp:directive>"ifdef"</cpp:directive> <name>"OPENSSL_SYS_WIN16"</name></cpp:ifdef>
-                <comment type="block">"/* MSVC 1.5 does not clear the top bytes of the word unless$
-$                 * I do this.$
-$                 */"</comment>
+                <comment type="block">"/* MSVC 1.5 does not clear the top bytes of the word unless
+                 * I do this.
+                 */"</comment>
                 <expr_stmt><expr><name>"l"</name><operator>"&amp;="</operator><literal type="number">"0xffff"</literal></expr>";"</expr_stmt>
 <cpp:endif>"#"<cpp:directive>"endif"</cpp:directive></cpp:endif>
 
@@ -960,14 +960,14 @@ $                 */"</comment>
         <return>"return"<expr><operator>"("</operator><call><name>"dtls1_do_write"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>","<argument><expr><name>"SSL3_RT_HANDSHAKE"</name></expr></argument>")"</argument_list></call><operator>")"</operator></expr>";"</return>
         "}"</block></function>
 
-<comment type="block">"/* for these 2 messages, we need to$
-$ * ssl-&gt;enc_read_ctx                    re-init$
-$ * ssl-&gt;s3-&gt;read_sequence               zero$
-$ * ssl-&gt;s3-&gt;read_mac_secret             re-init$
-$ * ssl-&gt;session-&gt;read_sym_enc           assign$
-$ * ssl-&gt;session-&gt;read_compression       assign$
-$ * ssl-&gt;session-&gt;read_hash              assign$
-$ */"</comment>
+<comment type="block">"/* for these 2 messages, we need to
+ * ssl-&gt;enc_read_ctx                    re-init
+ * ssl-&gt;s3-&gt;read_sequence               zero
+ * ssl-&gt;s3-&gt;read_mac_secret             re-init
+ * ssl-&gt;session-&gt;read_sym_enc           assign
+ * ssl-&gt;session-&gt;read_compression       assign
+ * ssl-&gt;session-&gt;read_hash              assign
+ */"</comment>
 <function><type><name>"int"</name></type> <name>"dtls1_send_change_cipher_spec"</name><parameter_list>"("<parameter><decl><type><name>"SSL"</name> <modifier>"*"</modifier></type><name>"s"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name></type> <name>"a"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name></type> <name>"b"</name></decl></parameter>")"</parameter_list>
         <block>"{" 
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name> <modifier>"*"</modifier></type><name>"p"</name></decl>";"</decl_stmt>
@@ -1087,8 +1087,8 @@ $ */"</comment>
 
         <if>"if" <condition>"("<expr><operator>"!"</operator><call><name>"dtls1_is_timer_expired"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>")"</argument_list></call></expr>")"</condition><then>
                 <block>"{"
-                <comment type="block">"/* not a timeout, none of our business, $
-$                   let higher layers handle this.  in fact it's probably an error */"</comment>
+                <comment type="block">"/* not a timeout, none of our business, 
+                   let higher layers handle this.  in fact it's probably an error */"</comment>
                 <return>"return" <expr><name>"code"</name></expr>";"</return>
                 "}"</block></then></if>
 
@@ -1103,18 +1103,18 @@ $                   let higher layers handle this.  in fact it's probably an err
                 "}"</block></then></if></block></then></if>
 
 <cpp:if>"#"<cpp:directive>"if"</cpp:directive> <expr><literal type="number">"0"</literal></expr></cpp:if> <comment type="block">"/* for now, each alert contains only one record number */"</comment>
-        "item = pqueue_peek(state-&gt;rcvd_records);$
-$        if ( item )$
-$                {"
+        "item = pqueue_peek(state-&gt;rcvd_records);
+        if ( item )
+                {"
                 <comment type="block">"/* send an alert immediately for all the missing records */"</comment>
-                "}$
-$        else"
+                "}
+        else"
 <cpp:endif>"#"<cpp:directive>"endif"</cpp:directive></cpp:endif>
 
 <cpp:if>"#"<cpp:directive>"if"</cpp:directive> <expr><literal type="number">"0"</literal></expr></cpp:if>  <comment type="block">"/* no more alert sending, just retransmit the last set of messages */"</comment>
-        "if ( state-&gt;timeout.read_timeouts &gt;= DTLS1_TMO_READ_COUNT)$
-$                ssl3_send_alert(s,SSL3_AL_WARNING,$
-$                        DTLS1_AD_MISSING_HANDSHAKE_MESSAGE);"
+        "if ( state-&gt;timeout.read_timeouts &gt;= DTLS1_TMO_READ_COUNT)
+                ssl3_send_alert(s,SSL3_AL_WARNING,
+                        DTLS1_AD_MISSING_HANDSHAKE_MESSAGE);"
 <cpp:endif>"#"<cpp:directive>"endif"</cpp:directive></cpp:endif>
 
         <return>"return" <expr><call><name>"dtls1_handle_timeout"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>")"</argument_list></call></expr>";"</return>
@@ -1123,14 +1123,14 @@ $                        DTLS1_AD_MISSING_HANDSHAKE_MESSAGE);"
 <function><type><name>"int"</name></type>
 <name>"dtls1_get_queue_priority"</name><parameter_list>"("<parameter><decl><type><name>"unsigned"</name> <name>"short"</name></type> <name>"seq"</name></decl></parameter>"," <parameter><decl><type><name>"int"</name></type> <name>"is_ccs"</name></decl></parameter>")"</parameter_list>
         <block>"{"
-        <comment type="block">"/* The index of the retransmission queue actually is the message sequence number,$
-$         * since the queue only contains messages of a single handshake. However, the$
-$         * ChangeCipherSpec has no message sequence number and so using only the sequence$
-$         * will result in the CCS and Finished having the same index. To prevent this,$
-$         * the sequence number is multiplied by 2. In case of a CCS 1 is subtracted.$
-$         * This does not only differ CSS and Finished, it also maintains the order of the$
-$         * index (important for priority queues) and fits in the unsigned short variable.$
-$         */"</comment>     
+        <comment type="block">"/* The index of the retransmission queue actually is the message sequence number,
+         * since the queue only contains messages of a single handshake. However, the
+         * ChangeCipherSpec has no message sequence number and so using only the sequence
+         * will result in the CCS and Finished having the same index. To prevent this,
+         * the sequence number is multiplied by 2. In case of a CCS 1 is subtracted.
+         * This does not only differ CSS and Finished, it also maintains the order of the
+         * index (important for priority queues) and fits in the unsigned short variable.
+         */"</comment>     
         <return>"return" <expr><name>"seq"</name> <operator>"*"</operator> <literal type="number">"2"</literal> <operator>"-"</operator> <name>"is_ccs"</name></expr>";"</return>
         "}"</block></function>
 
@@ -1152,8 +1152,7 @@ $         */"</comment>
                                 <argument><expr><operator>"("</operator><name>"unsigned"</name> <name>"short"</name><operator>")"</operator><call><name>"dtls1_get_queue_priority"</name><argument_list>"("<argument><expr><name><name>"frag"</name><operator>"-&gt;"</operator><name>"msg_header"</name><operator>"."</operator><name>"seq"</name></name></expr></argument>"," <argument><expr><name><name>"frag"</name><operator>"-&gt;"</operator><name>"msg_header"</name><operator>"."</operator><name>"is_ccs"</name></name></expr></argument>")"</argument_list></call></expr></argument>","
                                 <argument><expr><literal type="number">"0"</literal></expr></argument>"," <argument><expr><operator>"&amp;"</operator><name>"found"</name></expr></argument>")"</argument_list></call> <operator>"&lt;="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name>"found"</name></expr>")"</condition><then>
                         <block>"{"
-                        <expr_stmt><expr><call><name>"fprintf"</name><argument_list>"("<argument><expr><name>"stderr"</name></expr></argument>"," <argument><expr><literal type="string">"\"dtls1_retransmit_message() failed
-\""</literal></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                        <expr_stmt><expr><call><name>"fprintf"</name><argument_list>"("<argument><expr><name>"stderr"</name></expr></argument>"," <argument><expr><literal type="string">"\"dtls1_retransmit_message() failed\n\""</literal></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
                         <return>"return" <expr><operator>"-"</operator><literal type="number">"1"</literal></expr>";"</return>
                         "}"</block></then></if>
                 "}"</block></for>
@@ -1168,8 +1167,8 @@ $         */"</comment>
         <decl_stmt><decl><type><name>"hm_fragment"</name> <modifier>"*"</modifier></type><name>"frag"</name></decl>";"</decl_stmt>
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name></type> <name><name>"seq64be"</name><index>"["<expr><literal type="number">"8"</literal></expr>"]"</index></name></decl>";"</decl_stmt>
 
-        <comment type="block">"/* this function is called immediately after a message has $
-$         * been serialized */"</comment>
+        <comment type="block">"/* this function is called immediately after a message has 
+         * been serialized */"</comment>
         <expr_stmt><expr><call><name>"OPENSSL_assert"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"init_off"</name></name> <operator>"=="</operator> <literal type="number">"0"</literal></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
         <expr_stmt><expr><name>"frag"</name> <operator>"="</operator> <call><name>"dtls1_hm_fragment_new"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"init_num"</name></name></expr></argument>"," <argument><expr><literal type="number">"0"</literal></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
@@ -1215,9 +1214,9 @@ $         * been serialized */"</comment>
                 "}"</block></then></if>
 
 <cpp:if>"#"<cpp:directive>"if"</cpp:directive> <expr><literal type="number">"0"</literal></expr></cpp:if>
-        "fprintf( stderr, \"buffered messge: \\ttype = %xx\\n\", msg_buf-&gt;type);$
-$        fprintf( stderr, \"\\t\\t\\t\\t\\tlen = %d\\n\", msg_buf-&gt;len);$
-$        fprintf( stderr, \"\\t\\t\\t\\t\\tseq_num = %d\\n\", msg_buf-&gt;seq_num);"
+        "fprintf( stderr, \"buffered messge: \\ttype = %xx\\n\", msg_buf-&gt;type);
+        fprintf( stderr, \"\\t\\t\\t\\t\\tlen = %d\\n\", msg_buf-&gt;len);
+        fprintf( stderr, \"\\t\\t\\t\\t\\tseq_num = %d\\n\", msg_buf-&gt;seq_num);"
 <cpp:endif>"#"<cpp:directive>"endif"</cpp:directive></cpp:endif>
 
         <expr_stmt><expr><call><name>"pqueue_insert"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"sent_messages"</name></name></expr></argument>"," <argument><expr><name>"item"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
@@ -1237,10 +1236,10 @@ $        fprintf( stderr, \"\\t\\t\\t\\t\\tseq_num = %d\\n\", msg_buf-&gt;seq_nu
         <decl_stmt><decl><type><name><name>"struct"</name> <name>"dtls1_retransmit_state"</name></name></type> <name>"saved_state"</name></decl>";"</decl_stmt>
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name></type> <name><name>"save_write_sequence"</name><index>"["<expr><literal type="number">"8"</literal></expr>"]"</index></name></decl>";"</decl_stmt>
 
-        <comment type="block">"/*$
-$          OPENSSL_assert(s-&gt;init_num == 0);$
-$          OPENSSL_assert(s-&gt;init_off == 0);$
-$         */"</comment>
+        <comment type="block">"/*
+          OPENSSL_assert(s-&gt;init_num == 0);
+          OPENSSL_assert(s-&gt;init_off == 0);
+         */"</comment>
 
         <comment type="block">"/* XDTLS:  the requested message ought to be found, otherwise error */"</comment>
         <expr_stmt><expr><call><name>"memset"</name><argument_list>"("<argument><expr><name>"seq64be"</name></expr></argument>","<argument><expr><literal type="number">"0"</literal></expr></argument>","<argument><expr><sizeof>"sizeof"<argument_list>"("<argument><expr><name>"seq64be"</name></expr></argument>")"</argument_list></sizeof></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
@@ -1250,8 +1249,7 @@ $         */"</comment>
         <expr_stmt><expr><name>"item"</name> <operator>"="</operator> <call><name>"pqueue_find"</name><argument_list>"("<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"d1"</name><operator>"-&gt;"</operator><name>"sent_messages"</name></name></expr></argument>"," <argument><expr><name>"seq64be"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
         <if>"if" <condition>"(" <expr><name>"item"</name> <operator>"=="</operator> <name>"NULL"</name></expr>")"</condition><then>
                 <block>"{"
-                <expr_stmt><expr><call><name>"fprintf"</name><argument_list>"("<argument><expr><name>"stderr"</name></expr></argument>"," <argument><expr><literal type="string">"\"retransmit:  message %d non-existant
-\""</literal></expr></argument>"," <argument><expr><name>"seq"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                <expr_stmt><expr><call><name>"fprintf"</name><argument_list>"("<argument><expr><name>"stderr"</name></expr></argument>"," <argument><expr><literal type="string">"\"retransmit:  message %d non-existant\n\""</literal></expr></argument>"," <argument><expr><name>"seq"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
                 <expr_stmt><expr><operator>"*"</operator><name>"found"</name> <operator>"="</operator> <literal type="number">"0"</literal></expr>";"</expr_stmt>
                 <return>"return" <expr><literal type="number">"0"</literal></expr>";"</return>
                 "}"</block></then></if>
@@ -1462,18 +1460,66 @@ $         */"</comment>
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"int"</name></type> <name>"payload"</name></decl>";"</decl_stmt>
         <decl_stmt><decl><type><name>"unsigned"</name> <name>"int"</name></type> <name>"padding"</name> <init>"=" <expr><literal type="number">"16"</literal></expr></init></decl>";"</decl_stmt> <comment type="block">"/* Use minimum padding */"</comment>
 
-        <if>"if"<condition>"("<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name></expr>")"</condition><then><block><expr_stmt><expr><call><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name><argument_list>"("<argument><expr><literal type="number">"0"</literal></expr></argument>","<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"version"</name></name></expr></argument>","<argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>","<argument><expr><operator>"&amp;"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"rrec"</name><operator>"."</operator><name>"data"</name><index>"["<expr><literal type="number">"0"</literal></expr>"]"</index></name></expr></argument>","<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"rrec"</name><operator>"."</operator><name>"length"</name></name></expr></argument>","<argument><expr><name>"s"</name></expr></argument>","<argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback_arg"</name></name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt></block></then></if><comment type="block">"/* Read type and payload length first */"</comment>
+        <comment type="block">"/* Read type and payload length first */"</comment>
         <expr_stmt><expr><name>"hbtype"</name> <operator>"="</operator> <operator>"*"</operator><name>"p"</name><operator>"++"</operator></expr>";"</expr_stmt>
         <expr_stmt><expr><call><name>"n2s"</name><argument_list>"("<argument><expr><name>"p"</name></expr></argument>"," <argument><expr><name>"payload"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
         <expr_stmt><expr><name>"pl"</name> <operator>"="</operator> <name>"p"</name></expr>";"</expr_stmt>
 
-        <if>""<condition>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name></expr></condition><then>""<block>""<expr_stmt>""<expr>""<call>""<name>""<name>""</name><operator>""</operator><name>""</name></name><argument_list>""<argument>""<expr>""<literal type="number">""</literal></expr></argument><argument>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<operator>""</operator><name>""<name>""</name><operator>""</operator><name>""</name><operator>""</operator><name>""</name><operator>""</operator><name>""</name><index>""<expr>""<literal type="number">""</literal></expr></index></name></expr></argument><argument>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name><operator>""</operator><name>""</name><operator>""</operator><name>""</name></name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name></expr></argument></argument_list></call></expr></expr_stmt><decl_stmt><decl><type><name>"unsigned"</name><name>"int"</name></type><name>"write_length"</name><init>"="<expr><literal type="number">"1"</literal><comment type="line">"/* heartbeat type */"</comment><operator>"+"</operator><literal type="number">"2"</literal><comment type="line">"/* heartbeat length */"</comment><operator>"+"</operator><name>"payload"</name><operator>"+"</operator><name>"padding"</name></expr></init></decl>";"</decl_stmt><if>"if"<condition>"("<expr><name>"write_length"</name><operator>"&gt;"</operator><name>"SSL3_RT_MAX_PLAIN_LENGTH"</name></expr>")"</condition><then><block><return>"return"<expr><literal type="number">"0"</literal></expr>";"</return></block></then></if><comment type="line">"/* Allocate memory for the response, size is 1 byte$
-$                 * message type, plus 2 bytes payload length, plus$
-$                 * payload, plus padding$
-$                 */"</comment><expr_stmt><expr><name>"buffer"</name><operator>"="</operator><call><name>"OPENSSL_malloc"</name><argument_list>"("<argument><expr><name>"write_length"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt></block></then></if><if>""<condition>""<expr>""<name>""</name><operator>""</operator><name>""</name></expr></condition><then>""<block>""<decl_stmt>""<decl>""<type>""<name>""</name><name>""</name><modifier>""</modifier></type><name>""</name></decl><modifier>""</modifier><decl>""<type>""</type><name>""</name></decl></decl_stmt><decl_stmt>""<decl>""<type>""<name>""</name></type><name>""</name></decl></decl_stmt><comment type="line">""</comment><expr_stmt>""<expr>""<name>""</name><operator>""</operator><call>""<name>""</name><argument_list>""<argument>""<expr>""<literal type="number">""</literal><operator>""</operator><literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument></argument_list></call></expr></expr_stmt><expr_stmt>""<expr>""<name>""</name><operator>""</operator><name>""</name></expr></expr_stmt><comment type="line">""</comment><expr_stmt>""<expr>""<operator>""</operator><name>""</name><operator>""</operator><operator>""</operator><name>""</name></expr></expr_stmt><expr_stmt>""<expr>""<call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument></argument_list></call></expr></expr_stmt><expr_stmt>""<expr>""<call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument></argument_list></call></expr></expr_stmt><expr_stmt>""<expr>""<name>""</name><operator>""</operator><name>""</name></expr></expr_stmt><comment type="line">""</comment><expr_stmt>""<expr>""<call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument></argument_list></call></expr></expr_stmt><expr_stmt>""<expr>""<name>""</name><operator>""</operator><call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument></argument_list></call></expr></expr_stmt><if>""<condition>""<expr>""<name>""</name><operator>""</operator><literal type="number">""</literal><operator>""</operator><name>""<name>""</name><operator>""</operator><name>""</name></name></expr></condition><then>""<block>""<expr_stmt>""<expr>""<call>""<name>""<name>""</name><operator>""</operator><name>""</name></name><argument_list>""<argument>""<expr>""<literal type="number">""</literal></expr></argument><argument>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name></expr></argument></argument_list></call></expr></expr_stmt></block></then></if><expr_stmt>""<expr>""<call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument></argument_list></call></expr></expr_stmt><if>""<condition>""<expr>""<name>""</name><operator>""</operator><literal type="number">""</literal></expr></condition><then>""<block>""<return>""<expr>""<name>""</name></expr></return></block></then></if></block></then><elseif>""<if>""<condition>""<expr>""<name>""</name><operator>""</operator><name>""</name></expr></condition><then>""<block>""<decl_stmt>""<decl>""<type>""<name>""</name><name>""</name></type><name>""</name></decl></decl_stmt><comment type="line">""</comment><expr_stmt>""<expr>""<call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument><argument>""<expr>""<name>""</name></expr></argument></argument_list></call></expr></expr_stmt><if>""<condition>""<expr>""<name>""</name><operator>""</operator><literal type="number">""</literal><operator>""</operator><name>""</name><operator>""</operator><name>""<name>""</name><operator>""</operator><name>""</name></name></expr></condition><then>""<block>""<expr_stmt>""<expr>""<call>""<name>""</name><argument_list>""<argument>""<expr>""<name>""</name></expr></argument></argument_list></call></expr></expr_stmt><expr_stmt>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name><operator>""</operator></expr></expr_stmt><expr_stmt>""<expr>""<name>""<name>""</name><operator>""</operator><name>""</name></name><operator>""</operator><literal type="number">""</literal></expr></expr_stmt></block></then></if></block></then></if></elseif></if><return>"return"<expr><literal type="number">"0"</literal></expr>";"</return>"}"<if>"if"<condition>"("<expr><literal type="number">"1"</literal><operator>"+"</operator><literal type="number">"2"</literal><operator>"+"</operator><literal type="number">"16"</literal><operator>"&gt;"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"rrec"</name><operator>"."</operator><name>"length"</name></name></expr>")"</condition><then><block><return>"return"<expr><literal type="number">"0"</literal></expr>";"</return></block></then></if><comment type="line">"/* silently discard */"</comment><if>"if" <condition>"("<expr><literal type="number">"1"</literal><operator>"+"</operator><literal type="number">"2"</literal><operator>"+"</operator><name>"payload"</name><operator>"+"</operator><literal type="number">"16"</literal><operator>"&gt;"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"rrec"</name><operator>"."</operator><name>"length"</name></name></expr>")"</condition><then>
-                <block type="pseudo"><return>"return"<expr><literal type="number">"0"</literal></expr>";"</return></block></then></if>
+        <if>"if" <condition>"("<expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name></expr>")"</condition><then>
+                <block type="pseudo"><expr_stmt><expr><call><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name><argument_list>"("<argument><expr><literal type="number">"0"</literal></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"version"</name></name></expr></argument>"," <argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>","
+                        <argument><expr><operator>"&amp;"</operator><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"rrec"</name><operator>"."</operator><name>"data"</name><index>"["<expr><literal type="number">"0"</literal></expr>"]"</index></name></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"s3"</name><operator>"-&gt;"</operator><name>"rrec"</name><operator>"."</operator><name>"length"</name></name></expr></argument>","
+                        <argument><expr><name>"s"</name></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback_arg"</name></name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt></block></then></if>
 
-        <comment type="line">"/* silently discard per RFC 6520 sec. 4 */"</comment><return>"return" <expr><literal type="number">"0"</literal></expr>";"</return>
+        <if>"if" <condition>"("<expr><name>"hbtype"</name> <operator>"=="</operator> <name>"TLS1_HB_REQUEST"</name></expr>")"</condition><then>
+                <block>"{"
+                <decl_stmt><decl><type><name>"unsigned"</name> <name>"char"</name> <modifier>"*"</modifier></type><name>"buffer"</name></decl>"," <modifier>"*"</modifier><decl><type ref="prev"/><name>"bp"</name></decl>";"</decl_stmt>
+                <decl_stmt><decl><type><name>"int"</name></type> <name>"r"</name></decl>";"</decl_stmt>
+
+                <comment type="block">"/* Allocate memory for the response, size is 1 byte
+                 * message type, plus 2 bytes payload length, plus
+                 * payload, plus padding
+                 */"</comment>
+                <expr_stmt><expr><name>"buffer"</name> <operator>"="</operator> <call><name>"OPENSSL_malloc"</name><argument_list>"("<argument><expr><literal type="number">"1"</literal> <operator>"+"</operator> <literal type="number">"2"</literal> <operator>"+"</operator> <name>"payload"</name> <operator>"+"</operator> <name>"padding"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                <expr_stmt><expr><name>"bp"</name> <operator>"="</operator> <name>"buffer"</name></expr>";"</expr_stmt>
+
+                <comment type="block">"/* Enter response type, length and copy payload */"</comment>
+                <expr_stmt><expr><operator>"*"</operator><name>"bp"</name><operator>"++"</operator> <operator>"="</operator> <name>"TLS1_HB_RESPONSE"</name></expr>";"</expr_stmt>
+                <expr_stmt><expr><call><name>"s2n"</name><argument_list>"("<argument><expr><name>"payload"</name></expr></argument>"," <argument><expr><name>"bp"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                <expr_stmt><expr><call><name>"memcpy"</name><argument_list>"("<argument><expr><name>"bp"</name></expr></argument>"," <argument><expr><name>"pl"</name></expr></argument>"," <argument><expr><name>"payload"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                <expr_stmt><expr><name>"bp"</name> <operator>"+="</operator> <name>"payload"</name></expr>";"</expr_stmt>
+                <comment type="block">"/* Random padding */"</comment>
+                <expr_stmt><expr><call><name>"RAND_pseudo_bytes"</name><argument_list>"("<argument><expr><name>"bp"</name></expr></argument>"," <argument><expr><name>"padding"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+
+                <expr_stmt><expr><name>"r"</name> <operator>"="</operator> <call><name>"dtls1_write_bytes"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>"," <argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>"," <argument><expr><name>"buffer"</name></expr></argument>"," <argument><expr><literal type="number">"3"</literal> <operator>"+"</operator> <name>"payload"</name> <operator>"+"</operator> <name>"padding"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+
+                <if>"if" <condition>"("<expr><name>"r"</name> <operator>"&gt;="</operator> <literal type="number">"0"</literal> <operator>"&amp;&amp;"</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name></expr>")"</condition><then>
+                        <block type="pseudo"><expr_stmt><expr><call><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback"</name></name><argument_list>"("<argument><expr><literal type="number">"1"</literal></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"version"</name></name></expr></argument>"," <argument><expr><name>"TLS1_RT_HEARTBEAT"</name></expr></argument>","
+                                <argument><expr><name>"buffer"</name></expr></argument>"," <argument><expr><literal type="number">"3"</literal> <operator>"+"</operator> <name>"payload"</name> <operator>"+"</operator> <name>"padding"</name></expr></argument>","
+                                <argument><expr><name>"s"</name></expr></argument>"," <argument><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"msg_callback_arg"</name></name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt></block></then></if>
+
+                <expr_stmt><expr><call><name>"OPENSSL_free"</name><argument_list>"("<argument><expr><name>"buffer"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+
+                <if>"if" <condition>"("<expr><name>"r"</name> <operator>"&lt;"</operator> <literal type="number">"0"</literal></expr>")"</condition><then>
+                        <block type="pseudo"><return>"return" <expr><name>"r"</name></expr>";"</return></block></then></if>
+                "}"</block></then>
+        <elseif>"else" <if>"if" <condition>"("<expr><name>"hbtype"</name> <operator>"=="</operator> <name>"TLS1_HB_RESPONSE"</name></expr>")"</condition><then>
+                <block>"{"
+                <decl_stmt><decl><type><name>"unsigned"</name> <name>"int"</name></type> <name>"seq"</name></decl>";"</decl_stmt>
+
+                <comment type="block">"/* We only send sequence numbers (2 bytes unsigned int),
+                 * and 16 random bytes, so we just try to read the
+                 * sequence number */"</comment>
+                <expr_stmt><expr><call><name>"n2s"</name><argument_list>"("<argument><expr><name>"pl"</name></expr></argument>"," <argument><expr><name>"seq"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+
+                <if>"if" <condition>"("<expr><name>"payload"</name> <operator>"=="</operator> <literal type="number">"18"</literal> <operator>"&amp;&amp;"</operator> <name>"seq"</name> <operator>"=="</operator> <name><name>"s"</name><operator>"-&gt;"</operator><name>"tlsext_hb_seq"</name></name></expr>")"</condition><then>
+                        <block>"{"
+                        <expr_stmt><expr><call><name>"dtls1_stop_timer"</name><argument_list>"("<argument><expr><name>"s"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
+                        <expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"tlsext_hb_seq"</name></name><operator>"++"</operator></expr>";"</expr_stmt>
+                        <expr_stmt><expr><name><name>"s"</name><operator>"-&gt;"</operator><name>"tlsext_hb_pending"</name></name> <operator>"="</operator> <literal type="number">"0"</literal></expr>";"</expr_stmt>
+                        "}"</block></then></if>
+                "}"</block></then></if></elseif></if>
+
+        <return>"return" <expr><literal type="number">"0"</literal></expr>";"</return>
         "}"</block></function>
 
 <function><type><name>"int"</name></type>
@@ -1506,20 +1552,20 @@ $                 */"</comment><expr_stmt><expr><name>"buffer"</name><operator>"
                 <return>"return" <expr><operator>"-"</operator><literal type="number">"1"</literal></expr>";"</return>
                 "}"</block></then></if>
 
-        <comment type="block">"/* Check if padding is too long, payload and padding$
-$         * must not exceed 2^14 - 3 = 16381 bytes in total.$
-$         */"</comment>
+        <comment type="block">"/* Check if padding is too long, payload and padding
+         * must not exceed 2^14 - 3 = 16381 bytes in total.
+         */"</comment>
         <expr_stmt><expr><call><name>"OPENSSL_assert"</name><argument_list>"("<argument><expr><name>"payload"</name> <operator>"+"</operator> <name>"padding"</name> <operator>"&lt;="</operator> <literal type="number">"16381"</literal></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
 
-        <comment type="block">"/* Create HeartBeat message, we just use a sequence number$
-$         * as payload to distuingish different messages and add$
-$         * some random stuff.$
-$         *  - Message Type, 1 byte$
-$         *  - Payload Length, 2 bytes (unsigned int)$
-$         *  - Payload, the sequence number (2 bytes uint)$
-$         *  - Payload, random bytes (16 bytes uint)$
-$         *  - Padding$
-$         */"</comment>
+        <comment type="block">"/* Create HeartBeat message, we just use a sequence number
+         * as payload to distuingish different messages and add
+         * some random stuff.
+         *  - Message Type, 1 byte
+         *  - Payload Length, 2 bytes (unsigned int)
+         *  - Payload, the sequence number (2 bytes uint)
+         *  - Payload, random bytes (16 bytes uint)
+         *  - Padding
+         */"</comment>
         <expr_stmt><expr><name>"buf"</name> <operator>"="</operator> <call><name>"OPENSSL_malloc"</name><argument_list>"("<argument><expr><literal type="number">"1"</literal> <operator>"+"</operator> <literal type="number">"2"</literal> <operator>"+"</operator> <name>"payload"</name> <operator>"+"</operator> <name>"padding"</name></expr></argument>")"</argument_list></call></expr>";"</expr_stmt>
         <expr_stmt><expr><name>"p"</name> <operator>"="</operator> <name>"buf"</name></expr>";"</expr_stmt>
         <comment type="block">"/* Message Type */"</comment>
