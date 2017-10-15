@@ -39,8 +39,7 @@ public class ReverseProcessProto {
         String outputString = "";
  
         inputString = inputString.replace("element {", "");
-        inputString = inputString.replace("kind: UNIT_KIND", "");
-        
+       
         int i = 0;
         int tempIndex = 0;
         
@@ -64,27 +63,13 @@ public class ReverseProcessProto {
                 
                 tempIndex = inputString.indexOf('}', j+1);
                 
-                if(inputString.substring(j, tempIndex).contains("literal"))
-                {
-                	int tempIndex2 = inputString.indexOf('}', j);
-                	
-                	String tempStr = inputString.substring(j+1, tempIndex2+1) + inputString.substring(i, j+1)
-                	                 + inputString.substring(tempIndex2+1, inputString.length());
-                	
-                	inputString = tempStr;
-                	
-                	i = 0;
-                }
-                else
-                {
-                	String temp = encoEsca(inputString.substring(i+7, tempIndex));
-                    
-                    outputString += ("}" + " text: \""+ temp);
-                    
-                    i = tempIndex + 1;
-                }
+                String temp = encoEsca(inputString.substring(i+7, tempIndex));
                 
-                continue;  
+                outputString += ("}" + " text: \""+ temp);
+                
+                i = tempIndex + 1;
+                continue;
+                
             }
             /*else if(i+4 < inputString.length() && inputString.substring(i, i+5).equals("text:")) //对text对应的value值中的$\n$变为\n,$\t$变为\t
             {
