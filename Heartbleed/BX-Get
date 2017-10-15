@@ -1,4 +1,4 @@
 rm -f *.txt *.pb *AST
-cp test/*.c .
+cp openssl/*.c .
 
 ./source2PbText.sh

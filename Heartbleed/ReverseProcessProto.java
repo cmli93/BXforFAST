@@ -39,11 +39,10 @@ public class ReverseProcessProto {
         String outputString = "";
  
         inputString = inputString.replace("element {", "");
+        inputString = inputString.replace("kind: UNIT_KIND", "");
        
         int i = 0;
         int tempIndex = 0;
-        
-        inputString = inputString.replace("#DELETED#", "");
         
         while( i < inputString.length())
         {
