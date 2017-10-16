@@ -150,7 +150,7 @@ TText +> Text
 TText tText +> (tText +> String);
 Adaptive:
  [f| \_ (TText _ ) -> True |]
- [f| \_ (TText _ ) -> (TextStr ("notext", "")) |];
+ [f| \_ (TText _ ) -> (TextStr ("notext", " ")) |];
 
 TKind +> STag
 TKind tKindName +> '<' (tKindName +> Name) '>';
@@ -190,7 +190,7 @@ TLiteralText +> LiteralText
 TLiteralText literalText +> (literalText +> String);
 Adaptive:
   [p| _ |] [p| TLiteralText _ |]
-  [f| \_ (TLiteralText _) -> LiteralText ("noname", "") |] ;
+  [f| \_ (TLiteralText _) -> LiteralText ("noname", " ") |] ;
 
 TCommentText +> CommentText
 TCommentText commentText +> (commentText +> String);

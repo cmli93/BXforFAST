@@ -5,9 +5,6 @@ if [ ! -f ProcessXML.class ]; then
 fi
 java ProcessXML src.xml srcProcessed.xml
 ./ComXMLBiYacc get srcProcessed.xml srcAST
-if [ ! -d "/srcPb.txt" ]; then
-  sudo mkdir /srcPb.txt
-fi
 echo "" > srcPb.txt
 ./ComPBBiYacc put srcPb.txt srcAST
 if [ ! -f ProcessProto.class ]; then
