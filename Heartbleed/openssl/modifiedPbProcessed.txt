@@ -1,4 +1,5 @@
 element {
+  kind: UNIT_KIND
   child {
     kind: COMMENT
     text: "/* ssl/d1_both.c */"
@@ -32126,11 +32127,11 @@ element {
       }
       child {
         kind: COMMENT
-        text: "/* Read type and payload length first */ "
+        text: "/* Read type and payload length first */"
       }
       child {
         kind: IF
-        text: "if "
+        text: "if"
         child {
           kind: CONDITION
           text: "("
@@ -32138,36 +32139,36 @@ element {
             kind: EXPR
             child {
               kind: LITERAL
-              text: "1 "
+              text: "1"
               literal {
                 type: number_type
               }
             }
             child {
               kind: OPERATOR
-              text: "+ "
+              text: "+"
             }
             child {
               kind: LITERAL
-              text: "2 "
+              text: "2"
               literal {
                 type: number_type
               }
             }
             child {
               kind: OPERATOR
-              text: "+ "
+              text: "+"
             }
             child {
               kind: LITERAL
-              text: "16 "
+              text: "16"
               literal {
                 type: number_type
               }
             }
             child {
               kind: OPERATOR
-              text: "&gt; "
+              text: "&gt;"
             }
             child {
               kind: NAME
@@ -32200,7 +32201,7 @@ element {
                 text: "length"
               }
             }
-            tail: ") "
+            tail: ")"
           }
         }
         child {
@@ -32209,7 +32210,7 @@ element {
             kind: BLOCK
             child {
               kind: RETURN
-              text: "return "
+              text: "return"
               child {
                 kind: EXPR
                 child {
@@ -32219,7 +32220,7 @@ element {
                     type: number_type
                   }
                 }
-                tail: "; "
+                tail: ";"
               }
             }
           }
@@ -32227,7 +32228,7 @@ element {
       }
       child {
         kind: COMMENT
-        text: "/* silently discard */ "
+        text: "/* silently discard */"
       }
       child {
         kind: EXPR_STMT
@@ -32235,11 +32236,11 @@ element {
           kind: EXPR
           child {
             kind: NAME
-            text: "hbtype "
+            text: "hbtype"
           }
           child {
             kind: OPERATOR
-            text: "= "
+            text: "="
           }
           child {
             kind: OPERATOR
@@ -32253,7 +32254,7 @@ element {
             kind: OPERATOR
             text: "++"
           }
-          tail: "; "
+          tail: ";"
         }
       }
       child {
@@ -32278,7 +32279,7 @@ element {
                     text: "p"
                   }
                 }
-                tail: ", "
+                tail: ","
               }
               child {
                 kind: ARGUMENT
@@ -32293,12 +32294,12 @@ element {
               }
             }
           }
-          tail: "; "
+          tail: ";"
         }
       }
       child {
         kind: IF
-        text: "if "
+        text: "if"
         child {
           kind: CONDITION
           text: "("
@@ -32306,44 +32307,44 @@ element {
             kind: EXPR
             child {
               kind: LITERAL
-              text: "1 "
+              text: "1"
               literal {
                 type: number_type
               }
             }
             child {
               kind: OPERATOR
-              text: "+ "
+              text: "+"
             }
             child {
               kind: LITERAL
-              text: "2 "
+              text: "2"
               literal {
                 type: number_type
               }
             }
             child {
               kind: OPERATOR
-              text: "+ "
+              text: "+"
             }
             child {
               kind: NAME
-              text: "payload "
+              text: "payload"
             }
             child {
               kind: OPERATOR
-              text: "+ "
+              text: "+"
             }
             child {
               kind: LITERAL
-              text: "16 "
+              text: "16"
               literal {
                 type: number_type
               }
             }
             child {
               kind: OPERATOR
-              text: "&gt; "
+              text: "&gt;"
             }
             child {
               kind: NAME
@@ -32376,7 +32377,7 @@ element {
                 text: "length"
               }
             }
-            tail: ") "
+            tail: ")"
           }
         }
         child {
@@ -32385,7 +32386,7 @@ element {
             kind: BLOCK
             child {
               kind: RETURN
-              text: "return "
+              text: "return"
               child {
                 kind: EXPR
                 child {
@@ -32395,7 +32396,7 @@ element {
                     type: number_type
                   }
                 }
-                tail: "; "
+                tail: ";"
               }
             }
           }
@@ -32403,7 +32404,7 @@ element {
       }
       child {
         kind: COMMENT
-        text: "/* silently discard per RFC 6520 sec. 4 */ "
+        text: "/* silently discard per RFC 6520 sec. 4 */"
       }
       child {
         kind: EXPR_STMT
@@ -32411,17 +32412,17 @@ element {
           kind: EXPR
           child {
             kind: NAME
-            text: "pl "
+            text: "pl"
           }
           child {
             kind: OPERATOR
-            text: "= "
+            text: "="
           }
           child {
             kind: NAME
             text: "p"
           }
-          tail: "; "
+          tail: ";"
         }
       }
       child {
@@ -32502,59 +32503,59 @@ element {
                   kind: TYPE
                   child {
                     kind: NAME
-                    text: "unsigned "
+                    text: "unsigned"
                   }
                   child {
                     kind: NAME
-                    text: "int "
+                    text: "int"
                   }
                 }
                 child {
                   kind: NAME
-                  text: "write_length "
+                  text: "write_length"
                 }
                 child {
                   kind: INIT
-                  text: "= "
+                  text: "="
                   child {
                     kind: EXPR
                     child {
                       kind: LITERAL
-                      text: "1 "
+                      text: "1"
                       literal {
                         type: number_type
                       }
                     }
                     child {
                       kind: COMMENT
-                      text: "/* heartbeat type */ "
+                      text: "/* heartbeat type */"
                     }
                     child {
                       kind: OPERATOR
-                      text: "+ "
+                      text: "+"
                     }
                     child {
                       kind: LITERAL
-                      text: "2 "
+                      text: "2"
                       literal {
                         type: number_type
                       }
                     }
                     child {
                       kind: COMMENT
-                      text: "/* heartbeat length */ "
+                      text: "/* heartbeat length */"
                     }
                     child {
                       kind: OPERATOR
-                      text: "+ "
+                      text: "+"
                     }
                     child {
                       kind: NAME
-                      text: "payload "
+                      text: "payload"
                     }
                     child {
                       kind: OPERATOR
-                      text: "+ "
+                      text: "+"
                     }
                     child {
                       kind: NAME
@@ -32562,7 +32563,7 @@ element {
                     }
                   }
                 }
-                tail: "; "
+                tail: ";"
               }
             }
             child {
@@ -32585,7 +32586,7 @@ element {
             }
             child {
               kind: IF
-              text: "if "
+              text: "if"
               child {
                 kind: CONDITION
                 text: "("
@@ -32593,17 +32594,17 @@ element {
                   kind: EXPR
                   child {
                     kind: NAME
-                    text: "write_length "
+                    text: "write_length"
                   }
                   child {
                     kind: OPERATOR
-                    text: "&gt; "
+                    text: "&gt;"
                   }
                   child {
                     kind: NAME
                     text: "SSL3_RT_MAX_PLAIN_LENGTH"
                   }
-                  tail: ") "
+                  tail: ")"
                 }
               }
               child {
@@ -32612,7 +32613,7 @@ element {
                   kind: BLOCK
                   child {
                     kind: RETURN
-                    text: "return "
+                    text: "return"
                     child {
                       kind: EXPR
                       child {
@@ -32622,7 +32623,7 @@ element {
                           type: number_type
                         }
                       }
-                      tail: "; "
+                      tail: ";"
                     }
                   }
                 }
