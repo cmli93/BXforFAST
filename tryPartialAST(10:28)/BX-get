@@ -1,0 +1,14 @@
+srcml Hello.java -o Hello.xml
+if [ ! -f ProcessXML.class ]; then
+	javac ProcessXML.java
+fi
+java ProcessXML Hello.xml HelloProcessed.xml
+./ComXMLBiYacc get HelloProcessed.xml HelloAST
+echo "" > HelloPb.txt
+./ComPBBiYacc put HelloPb.txt HelloAST
+if [ ! -f ProcessProto.class ]; then
+	javac ProcessProto.java
+fi
+java ProcessProto HelloPb.txt HelloPbProcessed.txt
+fast -e HelloPbProcessed.txt Hello.pb
+fast -d Hello.pb > HelloPbProcessed.txt

@@ -1,0 +1,12 @@
+if [ ! -f ReverseProcessProto.class ]; then
+	javac ReverseProcessProto.java
+fi
+java ReverseProcessProto HelloPbProcessed.txt HelloPb.txt
+./ComPBBiYacc get HelloPb.txt HelloAST
+
+./ComXMLBiYacc put HelloProcessed.xml HelloAST
+if [ ! -f ReverseProcessXML.class ]; then
+	javac ReverseProcessXML.java
+fi
+java ReverseProcessXML HelloProcessed.xml Hello.xml
+fast Hello.xml Hello.java

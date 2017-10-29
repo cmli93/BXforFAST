@@ -1,0 +1,124 @@
+element {
+  kind: UNIT_KIND
+  child {
+    kind: CLASS
+    text: "class"
+    child {
+      kind: NAME
+      text: "Hello"
+    }
+    child {
+      kind: NAME
+      text: "Miao"
+    }
+    child {
+      kind: BLOCK
+      text: "{"
+      child {
+        kind: FUNCTION
+        child {
+          kind: TYPE
+          child {
+            kind: NAME
+            text: "void"
+          }
+        }
+        child {
+          kind: NAME
+          text: "main"
+        }
+        child {
+          kind: PARAMETER_LIST
+          text: "("
+          child {
+            kind: PARAMETER
+            child {
+              kind: DECL
+              child {
+                kind: TYPE
+                child {
+                  kind: NAME
+                  child {
+                    kind: NAME
+                    text: "String"
+                  }
+                  child {
+                    kind: INDEX
+                    text: "[]"
+                  }
+                }
+              }
+              child {
+                kind: NAME
+                text: "args"
+              }
+            }
+            tail: ")"
+          }
+        }
+        child {
+          kind: BLOCK
+          text: "{"
+          child {
+            kind: EXPR_STMT
+            child {
+              kind: EXPR
+              child {
+                kind: CALL
+                child {
+                  kind: NAME
+                  child {
+                    kind: NAME
+                    text: "System"
+                  }
+                  child {
+                    kind: OPERATOR
+                    text: "."
+                  }
+                  child {
+                    kind: NAME
+                    text: "out"
+                  }
+                  child {
+                    kind: OPERATOR
+                    text: "."
+                  }
+                  child {
+                    kind: NAME
+                    text: "println"
+                  }
+                }
+                child {
+                  kind: ARGUMENT_LIST
+                  text: "("
+                  child {
+                    kind: ARGUMENT
+                    child {
+                      kind: EXPR
+                      child {
+                        kind: LITERAL
+                        text: "\"Hello World!\""
+                        literal {
+                          type: string_type
+                        }
+                      }
+                    }
+                    tail: ")"
+                  }
+                }
+              }
+              tail: ";"
+            }
+            tail: "}"
+          }
+        }
+        tail: "}"
+      }
+    }
+  }
+  unit {
+    filename: "Hello.java"
+    revision: "0.9.5"
+    language: JAVA
+  }
+}
